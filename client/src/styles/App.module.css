@@ -1,0 +1,17 @@
+.background {
+    background-image: url('/images/wallpapersden.com_ufc-3-conor-mcgregor_1920x1080.jpg');
+    /* Path from the public directory */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    color: #fff;
+    /* Optional: Set a text color for better visibility */
+}
+
+.heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
