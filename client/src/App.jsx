@@ -1,3 +1,5 @@
+import { Routes , Route } from 'react-router-dom'
+
 import styles from './styles/App.module.css'
 
 import Navbar from "./components/Navbar"
@@ -10,6 +12,10 @@ function App() {
   return (
     <div className={styles.background}>
       <Navbar />
+    <Routes>
+      <Route path='/' element={<HomePage />}></Route>
+    </Routes>
+         
       <Footer />
     </div>
   )
