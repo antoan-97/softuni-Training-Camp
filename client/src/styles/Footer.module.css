@@ -1,0 +1,24 @@
+.footer {
+    background-color: #3d0b0b;
+    color: #ffffff;
+    padding: 40px 0;
+    text-align: center;
+  }
+  
+  .footer__address {
+    font-style: normal;
+    margin-bottom: 20px;
+  }
+  
+  .footer p {
+    margin-bottom: 0;
+  }
+  
+  .footer a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }
