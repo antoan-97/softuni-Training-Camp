@@ -1,21 +1,22 @@
 .footer {
   background-color: #2d0000;
   color: #ffffff;
-  padding: 10px 0; /* Reduce padding to make it smaller */
+  padding: 40px 0;
   text-align: center;
+  margin-top: 50px; /* Adjust as needed to provide consistent spacing */
 }
 
 .footer__address {
   font-style: normal;
-  margin-bottom: 10px; /* Adjust margin for spacing */
+  margin-bottom: 20px;
 }
 
 .footer p {
-  margin-bottom: 5px; /* Adjust margin for spacing */
+  margin-bottom: 0;
 }
 
 .footer a {
-  color: #421414;
+  color: #ffffff;
   text-decoration: none;
 }
 
