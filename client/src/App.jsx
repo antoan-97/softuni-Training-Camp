@@ -1,9 +1,10 @@
-import { Routes , Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 
 import styles from './styles/App.module.css'
 
 import Navbar from "./components/Navbar"
 import HomePage from './components/HomePage'
+import RegisterPage from './components/RegisterPage'
 import Footer from './components/Footer'
 
 
@@ -12,10 +13,11 @@ function App() {
   return (
     <div className={styles.background}>
       <Navbar />
-    <Routes>
-      <Route path='/' element={<HomePage />}></Route>
-    </Routes>
-         
+      <Routes>
+        <Route path='/' element={<HomePage />}></Route>
+        <Route path='/register' element={<RegisterPage />}></Route>
+      </Routes>
+
       <Footer />
     </div>
   )
