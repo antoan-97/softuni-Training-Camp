@@ -2,11 +2,11 @@ import { Routes, Route } from 'react-router-dom'
 
 import styles from './styles/App.module.css'
 
-import Navbar from "./components/Navbar"
-import HomePage from './components/HomePage'
-import RegisterPage from './components/RegisterPage'
-import LoginPage from './components/LoginPage'
-import Footer from './components/Footer'
+import Navbar from './components/navbar/Navbar'
+import HomePage from './components/homePage/HomePage'
+import RegisterPage from './components/registerPage/RegisterPage'
+import LoginPage from './components/loginPage/LoginPage'
+import Footer from './components/footer/Footer'
 
 
 function App() {
