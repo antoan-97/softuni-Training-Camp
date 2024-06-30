@@ -18,6 +18,7 @@ function App() {
         <Route path='/' element={<HomePage />}></Route>
         <Route path='/register' element={<RegisterPage />}></Route>
         <Route path='/login' element={<LoginPage />}></Route>
+        <Route path='/create' element={<CreatePage />}></Route>
       </Routes>
 
       <Footer />
