@@ -6,6 +6,7 @@ import Navbar from './components/navbar/Navbar'
 import HomePage from './components/homePage/HomePage'
 import RegisterPage from './components/registerPage/RegisterPage'
 import LoginPage from './components/loginPage/LoginPage'
+import CreatePage from './components/createPage/CreatePage'
 import Footer from './components/footer/Footer'
 
 
