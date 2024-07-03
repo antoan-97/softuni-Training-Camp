@@ -1,9 +1,13 @@
 import styles from '../../styles/Create.module.css'
 
-const createFighterHandler = (e) => {
+import { create } from '../../services/fighterService';
+
+const createFighterHandler = async (e) => {
   e.preventDefault();
   const fighterData = Object.fromEntries(new FormData(e.currentTarget))
-  console.log(fighterData);
+
+   const result = await create(fighterData)
+   console.log(result);
 }
 
 export default function CreatePage() {
