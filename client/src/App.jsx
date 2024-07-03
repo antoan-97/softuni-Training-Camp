@@ -7,6 +7,7 @@ import HomePage from './components/homePage/HomePage'
 import RegisterPage from './components/registerPage/RegisterPage'
 import LoginPage from './components/loginPage/LoginPage'
 import CreatePage from './components/createPage/CreatePage'
+import Collection from './components/collection/Collection'
 import Footer from './components/footer/Footer'
 
 
@@ -20,6 +21,7 @@ function App() {
         <Route path='/register' element={<RegisterPage />}></Route>
         <Route path='/login' element={<LoginPage />}></Route>
         <Route path='/create' element={<CreatePage />}></Route>
+        <Route path='/collection' element={<Collection />}></Route>
       </Routes>
 
       <Footer />
