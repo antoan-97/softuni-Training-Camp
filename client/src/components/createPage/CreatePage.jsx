@@ -14,9 +14,13 @@ export default function CreatePage() {
 
     const fighterData = Object.fromEntries(new FormData(e.currentTarget))
 
-    const result = await create(fighterData)
+    try {
+      await create(fighterData)
 
-    navigate('/')
+      navigate('/')
+    } catch (error) {
+      console.log(error);
+    }
 
 
   }
