@@ -1,9 +1,30 @@
 {
-    "e0d7552a-9313-4a30-9e44-f10d9f40f514": {
-        "title": "Antoan",
+    "ebcc6ae0-d08d-42e8-b434-bb44db522e36": {
+        "title": "Alex Pereira ",
         "category": "Kickboxer",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNQqx0AXIxP4XBAeobInT0uDeFYt-zlPWPIg_J5p_FUw&s",
-        "description": "Test ",
-        "_id": "e0d7552a-9313-4a30-9e44-f10d9f40f514"
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO_CXz6pHnwMBqVxqZwbkL6UbFx6CRCPykBg&s",
+        "description": "Glory and UFC double champ ",
+        "_id": "ebcc6ae0-d08d-42e8-b434-bb44db522e36"
+    },
+    "41f4259d-94d4-4b4a-a886-4b53e8239efd": {
+        "title": "Conor McGregor ",
+        "category": "Striker ",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCYnUjKQwIO-bXF3tn0YjvSDmtkxky3_4U6g&s",
+        "description": "UFC first double champ",
+        "_id": "41f4259d-94d4-4b4a-a886-4b53e8239efd"
+    },
+    "12daf940-8141-4f46-9ba0-2abfb0afea87": {
+        "title": "Khamzat Chimaev",
+        "category": "Wrestler",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAnTQzAZDbByPziT3mXJpCbkcTRd_7dbh5Nw&s",
+        "description": "Undefeated UFC fighter ",
+        "_id": "12daf940-8141-4f46-9ba0-2abfb0afea87"
+    },
+    "92597eb7-6ca8-43d4-9b68-a582afc4435d": {
+        "title": "Jon Jones",
+        "category": "Martial Art Fighter ",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReQmZ-2i8NpVIPn3dsr1viKzb79crTu1soCQ&s",
+        "description": "MMA Goat ",
+        "_id": "92597eb7-6ca8-43d4-9b68-a582afc4435d"
     }
 }
