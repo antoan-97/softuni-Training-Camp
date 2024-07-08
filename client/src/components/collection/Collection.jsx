@@ -1,6 +1,21 @@
+import { useEffect, useState } from 'react';
+
+import * as fighterService from '../../services/fighterService'
+
 import styles from '../../styles/Collection.module.css';
 
 export default function Collection() {
+
+    const [fighters, setFighters] = useState([])
+
+    useEffect(() => {
+        fighterService.getAll()
+            .then(result => setFighters(result))
+    }, []);
+    
+    console.log(fighters);
+
+
     return (
         <div className={`${styles.flip} ${styles.flipVertical}`}>
             <div className={styles.flipContainerFront}>
