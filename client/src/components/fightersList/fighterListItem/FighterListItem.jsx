@@ -1,9 +1,12 @@
 import styles from '../../../styles/Collection.module.css'
 
+import { Link } from 'react-router-dom';
+
 export default function FighterListItem({
+    _id,
     title,
     category,
-    image,
+    imageUrl,
     description
 }
 
@@ -17,7 +20,7 @@ export default function FighterListItem({
                 <h1 className={styles.frontHeading}>Name: {title}</h1>
                 <h2 className={styles.flipContainerBackHeading}>Category: {category} </h2>
                 <p className={styles.flipContainerBackDescription}>Description: {description}  </p>
-                <a href="/fighters/{{_id}}/details" className={styles.detailsButton}>Details</a>
+                <Link to={`/fighters/${_id}/details`} className={styles.detailsButton}>Details</Link>
             </div>
         </div>
     );
