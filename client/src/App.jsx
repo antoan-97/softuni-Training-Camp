@@ -9,6 +9,7 @@ import LoginPage from './components/loginPage/LoginPage'
 import CreatePage from './components/createPage/CreatePage'
 import FightersList from './components/fightersList/FightersList'
 import Footer from './components/footer/Footer'
+import FighterDetails from './components/fighter-details/FighterDetails'
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path='/login' element={<LoginPage />}></Route>
         <Route path='/create' element={<CreatePage />}></Route>
         <Route path='/fighters-list' element={<FightersList />}></Route>
+        <Route path='/fighters/:fighterId/details' element={<FighterDetails />}></Route>
       </Routes>
 
       <Footer />
