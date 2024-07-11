@@ -21,15 +21,14 @@ export default function FighterDetails() {
                 <div className="card_left">
                     <div className="card_datails">
 
-                        <h1>Name:</h1>
-                        <h3>Description: </h3>
+                        <h1>Name:{fighter.title}</h1>
                         <div className="card_fighter">
                             <p className="wins">Wins: </p>
                             <p className="loses">Loses: </p>
                             <p className="weight">Weight: </p>
                         </div>
 
-                        <p className="disc">Description: </p>
+                        <p className="disc">Description: {fighter.description} </p>
                         {/* {{ #if user }} */}
                         <div className="social-btn">
                             {/* {{ #if isOwner }} */}
@@ -50,7 +49,7 @@ export default function FighterDetails() {
                     </div>
                 </div>
                 <div className="card_right">
-                    <img src="" alt="image" />
+                    <img src={fighter.imageUrl} alt={fighter.title} />
                 </div>
             </div>
 
