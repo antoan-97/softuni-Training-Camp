@@ -18,11 +18,11 @@ export const create = async (fighterData) => {
 }
 
 
-export const getAll = async () =>{
+export const getAll = async () => {
     const response = await fetch(baseUrl, {
         method: 'GET',
         headers: {
-            'content-type' : 'application/json'
+            'content-type': 'application/json'
         },
     })
 
@@ -31,7 +31,25 @@ export const getAll = async () =>{
     }
 
     const result = await response.json()
-   
+
 
     return Object.values(result)
+}
+
+export const getOne = async (fighterId) => {
+    const response = await fetch(`${baseUrl}/${fighterId}`, {
+        method: 'GET',
+        headers: {
+            'content-type': 'application/json'
+        },
+    });
+
+    if (!response.ok) {
+        throw new Error('Network response was not ok' + response.statusText);
+    }
+
+    const result = await response.json()
+
+
+    return result
 }
