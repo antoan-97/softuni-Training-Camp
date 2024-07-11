@@ -1,65 +1,64 @@
 .newPostSection {
     margin: auto;
     width: 740px;
-    height: 600px;
     margin-top: 1rem;
-    left: 35%;
     text-align: center;
-    display: flex;
     color: white;
-    box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, .5);
-}
-
-textarea {
-    resize: none;
+    box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, 0.5);
 }
 
 .newPostForm {
-    width: 720px;
-    padding: 10px 0;
-    background: rgba(20, 40, 40, .8);
-    transition: .2s;
+    width: 100%;
+    max-width: 500px; /* Adjust max-width to fit your design */
+    margin: auto;
+    padding: 20px;
+    background: rgba(20, 40, 40, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .newPostForm h2 {
-    font-weight: 350;
-    font-size: 27px;
-    margin-bottom: 0.8em;
+    font-weight: 500;
+    font-size: 2rem;
+    margin-bottom: 1em;
 }
 
-.newPostButton {
+.createButton {
     border: 1px solid rgba(10, 180, 180, 1);
-    background: rgba(20, 20, 20, .6);
-    font-size: 18px;
+    background: rgba(20, 20, 20, 0.6);
+    font-size: 1rem;
     color: white;
     margin-top: 20px;
-    padding: 10px 43px;
+    padding: 10px 30px;
     cursor: pointer;
-    transition: .4s;
+    transition: 0.4s;
 }
 
-.newPostButton:hover {
-    background: rgba(20, 20, 20, .8);
-    padding: 10px 80px;
+.createButton:hover {
+    background: rgba(20, 20, 20, 0.8);
+    padding: 10px 50px;
 }
 
 .inputField {
-    margin: 18px 0;
-    font-size: 19px;
+    margin: 10px 0;
+    font-size: 1rem;
     padding: 10px;
-    width: 270px;
+    width: 100%;
     border: 1px solid rgba(10, 180, 180, 1);
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    background: rgba(20, 20, 20, .2);
+    background: rgba(20, 20, 20, 0.2);
     color: white;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
     outline: none;
 }
 
-.bulletlessList {
-    list-style-type: none;
-    padding: 0;
+.inputField:focus {
+    border-color: rgba(10, 180, 180, 0.8);
+}
+
+.textareaField {
+    height: 120px; /* Adjust height as needed */
+    resize: vertical; /* Allow vertical resizing */
 }
 
 .centeredButton {

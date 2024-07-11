@@ -59,6 +59,18 @@ export default function CreatePage() {
             />
           </li>
           <li>
+            <label htmlFor="wins">Wins:</label>
+            <input type="number" className={styles.inputField} id="wins" name="wins" required />
+          </li>
+          <li>
+            <label htmlFor="loses">Loses:</label>
+            <input type="number" className={styles.inputField} id="loses" name="loses" required />
+          </li>
+          <li>
+            <label htmlFor="weight">Weight:</label>
+            <input type="text" className={styles.inputField} id="weight" name="weight" required />
+          </li>
+          <li>
             <label htmlFor="description">Description:</label>
             <textarea
               id="description"
