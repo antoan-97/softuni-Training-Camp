@@ -23,7 +23,7 @@ export default function FightersList() {
             <h1 className={styles.title}>All Fighters</h1>
 
             {fighters.map(fighter =>  (
-                <FighterListItem {...fighter} />
+                <FighterListItem key={fighter._id} {...fighter} />
             ))}
 
             <h3 className='no-articles'>No articles yet</h3>
