@@ -20,7 +20,7 @@ export default function FightersList() {
     return (
         <section id="catalog-page">
 
-            <h1>All Fighters</h1>
+            <h1 className={styles.title}>All Fighters</h1>
 
             {fighters.map(fighter =>  (
                 <FighterListItem {...fighter} />

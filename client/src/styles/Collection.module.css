@@ -1,102 +1,149 @@
 /* Collection.module.css */
+.collectionBackground {
+  background-image: url('/images/other-background.jpg'); /* Path to your collection page background */
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh; /* Ensure the background covers the entire viewport height */
+  margin: 0;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.collection {
+  flex: 1; /* Ensure the collection section expands to take up available space */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
 
 .flip {
-    position: relative;
-    display: inline-block;
-    margin: 1em;
-    width: 350px;
+  position: relative;
+  display: inline-block;
+  margin: 1em;
+  width: 350px;
+  transition: transform 0.2s ease-in-out; /* Add transition for smoothness */
+}
+
+.flip:hover {
+  transform: scale(1.05); /* Apply the zoom effect on hover */
+}
+
+.flipFront, .flipBack {
+  display: block;
+  color: white;
+  background-size: cover !important;
+  background-position: center !important;
+  height: 350px;
+  width: 350px;
+  padding: 1em;
+  background: rgba(20, 40, 40, 0.8);
+  border-radius: 10px;
+  transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.flipFront {
+  transform: rotateY(0deg);
+}
+
+.flipBack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: rotateY(-180deg);
+}
+
+.flip:hover .flipFront {
+  transform: rotateY(180deg);
+}
+
+.flip:hover .flipBack {
+  opacity: 1;
+  transform: rotateY(0deg);
+}
+
+.flipVertical .flipBack {
+  transform: rotateX(-180deg);
+}
+
+.flipVertical:hover .flipFront {
+  transform: rotateX(180deg);
+}
+
+.flipVertical:hover .flipBack {
+  transform: rotateX(0deg);
+}
+
+.frontImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.backContent {
+  text-align: center;
+}
+
+.backContent h1 {
+  margin-top: -8em;
+  font-size: 2.1em;
+  color: #fff;
+}
+
+.backContent h2 {
+  font-size: 1.5rem;
+  color: #999;
+  margin: 1em 0;
+}
+
+.backContent p {
+  font-size: 0.9125rem;
+  line-height: 1.8;
+  color: #999;
+  margin-bottom: 2em;
+}
+
+.detailsButton {
+  display: inline-block;
+  padding: 10px 30px;
+  font-size: 1rem;
+  color: white;
+  background-color: rgba(10, 180, 180, 1);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.4s;
+  text-decoration: none;
+}
+
+.detailsButton:hover {
+  background-color: rgba(20, 20, 20, 0.8);
+  transform: scale(1.1);
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+  font-size: 2.5rem;
+  color: #e1d8d8;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
   }
-  
-  .flipFront, .flipBack {
-    display: block;
-    color: white;
-    background-size: cover !important;
-    background-position: center !important;
-    height: 350px;
-    width: 350px;
-    padding: 1em;
-    background: rgba(20, 40, 40, 0.8);
-    border-radius: 10px;
-    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  50% {
+      transform: scale(1.05);
   }
-  
-  .flipFront {
-    transform: rotateY(0deg);
+  100% {
+      transform: scale(1);
   }
-  
-  .flipBack {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transform: rotateY(-180deg);
-  }
-  
-  .flip:hover .flipFront {
-    transform: rotateY(180deg);
-  }
-  
-  .flip:hover .flipBack {
-    opacity: 1;
-    transform: rotateY(0deg);
-  }
-  
-  .flipVertical .flipBack {
-    transform: rotateX(-180deg);
-  }
-  
-  .flipVertical:hover .flipFront {
-    transform: rotateX(180deg);
-  }
-  
-  .flipVertical:hover .flipBack {
-    transform: rotateX(0deg);
-  }
-  
-  .frontImage {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-  }
-  
-  .backContent {
-    text-align: center;
-  }
-  
-  .backContent h1 {
-    margin-top: -8em;
-    font-size: 2.1em;
-    color: #fff;
-  }
-  
-  .backContent h2 {
-    font-size: 1.5rem;
-    color: #999;
-    margin: 1em 0;
-  }
-  
-  .backContent p {
-    font-size: 0.9125rem;
-    line-height: 1.8;
-    color: #999;
-    margin-bottom: 2em;
-  }
-  
-  .detailsButton {
-    display: inline-block;
-    padding: 10px 30px;
-    font-size: 1rem;
-    color: white;
-    background-color: rgba(10, 180, 180, 1);
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: 0.4s;
-    text-decoration: none;
-  }
-  
-  .detailsButton:hover {
-    background-color: rgba(20, 20, 20, 0.8);
-    transform: scale(1.1);
-  }
-  
+}
