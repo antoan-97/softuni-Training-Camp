@@ -1,7 +1,17 @@
-export default function ({
-    title,
-    description
-}) {
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
+import * as fighterService from '../../services/fighterService'
+
+export default function FighterDetails() {
+    const [fighter, setFighter] = useState({});
+    const { fighterId } = useParams();
+
+    useEffect(() => {
+        fighterService.getOne(fighterId)
+        .then(setFighter)
+    }, [fighterId]);
+
     return (
 
 
@@ -11,7 +21,7 @@ export default function ({
                 <div className="card_left">
                     <div className="card_datails">
 
-                        <h1>Name: {title}</h1>
+                        <h1>Name:</h1>
                         <h3>Description: </h3>
                         <div className="card_fighter">
                             <p className="wins">Wins: </p>
@@ -44,7 +54,7 @@ export default function ({
                 </div>
             </div>
 
-    
+
 
         </section>
     );
