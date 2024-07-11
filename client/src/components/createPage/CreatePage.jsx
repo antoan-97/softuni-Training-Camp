@@ -54,8 +54,8 @@ export default function CreatePage() {
             <input
               type="text"
               className={styles.inputField}
-              id="image"
-              name="image"
+              id="imageUrl"
+              name="imageUrl"
             />
           </li>
           <li>
