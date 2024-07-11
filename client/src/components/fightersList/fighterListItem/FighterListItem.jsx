@@ -14,7 +14,7 @@ export default function FighterListItem({
     return (
         <div className={`${styles.flip} ${styles.flipVertical}`}>
             <div className={styles.flipContainerFront}>
-                <img src={image} alt="fighter" className={styles.frontImage} />
+                <img src={imageUrl} alt="fighter" className={styles.frontImage} />
             </div>
             <div className={styles.flipContainerBack}>
                 <h1 className={styles.frontHeading}>Name: {title}</h1>

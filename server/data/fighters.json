@@ -2,42 +2,42 @@
     "ebcc6ae0-d08d-42e8-b434-bb44db522e36": {
         "title": "Alex Pereira ",
         "category": "Kickboxer",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO_CXz6pHnwMBqVxqZwbkL6UbFx6CRCPykBg&s",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO_CXz6pHnwMBqVxqZwbkL6UbFx6CRCPykBg&s",
         "description": "Glory and UFC double champ ",
         "_id": "ebcc6ae0-d08d-42e8-b434-bb44db522e36"
     },
     "41f4259d-94d4-4b4a-a886-4b53e8239efd": {
         "title": "Conor McGregor ",
         "category": "Striker ",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCYnUjKQwIO-bXF3tn0YjvSDmtkxky3_4U6g&s",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCYnUjKQwIO-bXF3tn0YjvSDmtkxky3_4U6g&s",
         "description": "UFC first double champ",
         "_id": "41f4259d-94d4-4b4a-a886-4b53e8239efd"
     },
     "12daf940-8141-4f46-9ba0-2abfb0afea87": {
         "title": "Khamzat Chimaev",
         "category": "Wrestler",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStAoel8CD1z3owYJWz2tVGeog1zOSaxAiPVQ&s",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStAoel8CD1z3owYJWz2tVGeog1zOSaxAiPVQ&s",
         "description": "Undefeated UFC fighter ",
         "_id": "12daf940-8141-4f46-9ba0-2abfb0afea87"
     },
     "92597eb7-6ca8-43d4-9b68-a582afc4435d": {
         "title": "Jon Jones",
         "category": "Martial Art Fighter ",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReQmZ-2i8NpVIPn3dsr1viKzb79crTu1soCQ&s",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReQmZ-2i8NpVIPn3dsr1viKzb79crTu1soCQ&s",
         "description": "MMA Goat ",
         "_id": "92597eb7-6ca8-43d4-9b68-a582afc4435d"
     },
     "09eab4b5-8d7c-4da9-954f-83539938eed3": {
         "title": "Anderson Silva",
         "category": "Striker",
-        "image": "https://bjjfanatics.com/cdn/shop/articles/anderson-silva_1024x1024.jpg?v=1607721296",
+        "imageUrl": "https://bjjfanatics.com/cdn/shop/articles/anderson-silva_1024x1024.jpg?v=1607721296",
         "description": "Longest title reign in UFC history",
         "_id": "09eab4b5-8d7c-4da9-954f-83539938eed3"
     },
     "4f2b98a1-a78f-440c-8aea-43800349e3e5": {
         "title": "Max Holloway",
         "category": "Boxer ",
-        "image": "https://sports.betmgm.com/en/blog/wp-content/uploads/2023/01/when-is-max-holloway-next-fight-ufc-betmgm.jpg",
+        "imageUrl": "https://sports.betmgm.com/en/blog/wp-content/uploads/2023/01/when-is-max-holloway-next-fight-ufc-betmgm.jpg",
         "description": "UFC BMF Champion",
         "_id": "4f2b98a1-a78f-440c-8aea-43800349e3e5"
     }
