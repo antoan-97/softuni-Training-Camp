@@ -1,3 +1,5 @@
+import styles from '../../styles/FighterDetails.module.css'
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -9,52 +11,53 @@ export default function FighterDetails() {
 
     useEffect(() => {
         fighterService.getOne(fighterId)
-        .then(setFighter)
+            .then(setFighter)
     }, [fighterId]);
 
     return (
 
+        <section id="details-page" className={styles.detailsPage}>
+            <div className={styles.mainCard}>
+                <div className={styles.cardLeft}>
+                    <div className={styles.cardDetails}>
 
-        <section id="details-page">
-
-            <div className="main_card">
-                <div className="card_left">
-                    <div className="card_datails">
-
-                        <h1>Name:{fighter.title}</h1>
-                        <div className="card_fighter">
-                            <p className="wins">Wins: </p>
-                            <p className="loses">Loses: </p>
-                            <p className="weight">Weight: </p>
+                        <h1>Name: {fighter.title}</h1>
+                        <div className={styles.cardFighter}>
+                            <p className={styles.wins}>Wins: {fighter.wins}</p>
+                            <p className={styles.loses}>Loses: {fighter.loses}</p>
+                            <p className={styles.weight}>Weight: {fighter.weight}</p>
                         </div>
 
-                        <p className="disc">Description: {fighter.description} </p>
-                        {/* {{ #if user }} */}
-                        <div className="social-btn">
-                            {/* {{ #if isOwner }} */}
-                            {/* <!-- Only for registered user and author of the post --> */}
-                            <a href="/fighters-list/${fighterId}/edit" className="edit-btn">Edit</a>
-                            <a href="/fighter-list/${fighterId}/delete" className="del-btn">Delete</a>
-                            {/* {{ else}}
-                                {{ #if hasSign }}
-                                <!-- logged in user who has already voted--> */}
-                            <p className="thanks-for-sign">Thanks For Signing</p>
-                            {/* {{ else}}
-                                <!-- logged in users, who have not yet voted--> */}
-                            <a href="/fighters-list/${figterId}/signUp" className="sign-up">Sign</a>
-                            {/* {{/if}}
-                                {{/if}} */}
-                        </div>
-                        {/* {{/if}} */}
+                        <p className={styles.description}>Description: {fighter.description}</p>
+
+                        {/* Conditional rendering based on user authentication */}
+                        {/* Replace with your conditional logic */}
+                        {/* Example: */}
+                        {/* {user && ( */}
+                        {/*     <div className={styles.socialBtn}> */}
+                        {/*         {isOwner && ( */}
+                        {/*             <> */}
+                        {/*                 <a href={`/fighters-list/${fighter._id}/edit`} className={styles.editBtn}>Edit</a> */}
+                        {/*                 <a href={`/fighter-list/${fighter._id}/delete`} className={styles.delBtn}>Delete</a> */}
+                        {/*             </> */}
+                        {/*         )} */}
+                        {/*         {!isOwner && hasSigned && ( */}
+                        {/*             <p className={styles.thanksForSign}>Thanks For Signing</p> */}
+                        {/*         )} */}
+                        {/*         {!isOwner && !hasSigned && ( */}
+                        {/*             <a href={`/fighters-list/${fighter._id}/signUp`} className={styles.signUp}>Sign</a> */}
+                        {/*         )} */}
+                        {/*     </div> */}
+                        {/* )} */}
+
                     </div>
                 </div>
-                <div className="card_right">
-                    <img src={fighter.imageUrl} alt={fighter.title} />
+                <div className={styles.cardRight}>
+                    <img src={fighter.imageUrl} alt={fighter.title} className={styles.fighterImage} />
                 </div>
             </div>
-
-
-
         </section>
     );
+
+
 }
