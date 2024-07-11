@@ -16,7 +16,7 @@
     "12daf940-8141-4f46-9ba0-2abfb0afea87": {
         "title": "Khamzat Chimaev",
         "category": "Wrestler",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAnTQzAZDbByPziT3mXJpCbkcTRd_7dbh5Nw&s",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStAoel8CD1z3owYJWz2tVGeog1zOSaxAiPVQ&s",
         "description": "Undefeated UFC fighter ",
         "_id": "12daf940-8141-4f46-9ba0-2abfb0afea87"
     },
@@ -26,5 +26,19 @@
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReQmZ-2i8NpVIPn3dsr1viKzb79crTu1soCQ&s",
         "description": "MMA Goat ",
         "_id": "92597eb7-6ca8-43d4-9b68-a582afc4435d"
+    },
+    "09eab4b5-8d7c-4da9-954f-83539938eed3": {
+        "title": "Anderson Silva",
+        "category": "Striker",
+        "image": "https://bjjfanatics.com/cdn/shop/articles/anderson-silva_1024x1024.jpg?v=1607721296",
+        "description": "Longest title reign in UFC history",
+        "_id": "09eab4b5-8d7c-4da9-954f-83539938eed3"
+    },
+    "4f2b98a1-a78f-440c-8aea-43800349e3e5": {
+        "title": "Max Holloway",
+        "category": "Boxer ",
+        "image": "https://sports.betmgm.com/en/blog/wp-content/uploads/2023/01/when-is-max-holloway-next-fight-ufc-betmgm.jpg",
+        "description": "UFC BMF Champion",
+        "_id": "4f2b98a1-a78f-440c-8aea-43800349e3e5"
     }
 }
