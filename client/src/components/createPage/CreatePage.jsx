@@ -17,7 +17,7 @@ export default function CreatePage() {
     try {
       await create(fighterData)
 
-      navigate('/collection')
+      navigate('/fighters-list')
     } catch (error) {
       console.log(error);
     }
