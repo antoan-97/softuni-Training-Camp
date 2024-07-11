@@ -4,7 +4,7 @@ import * as fighterService from '../../services/fighterService'
 
 import styles from '../../styles/Collection.module.css';
 
-export default function Collection() {
+export default function FightersList() {
 
     const [fighters, setFighters] = useState([])
 

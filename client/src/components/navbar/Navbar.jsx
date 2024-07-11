@@ -7,7 +7,7 @@ export default function Navbar() {
         <nav className={styles.navbar}>
             <ul className={styles['nav-menu']}>
                 <li><Link to="/">Home</Link></li>
-                <li><Link to="/collection">Collection</Link></li>
+                <li><Link to="/fighters-list">Fighters List</Link></li>
                 <li><Link to="/register">Register</Link></li>
                 <li><Link to="/create">Add Fighter</Link></li>
                 <li><Link to="/login">Login</Link></li>
