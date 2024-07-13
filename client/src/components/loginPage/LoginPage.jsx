@@ -12,6 +12,7 @@ export default function LoginPage() {
 
 
     const [formState,setFormState] = useState(initialFormState);
+    const [errorState,setErrorState] = useState('')
 
     const formChangeHandler = (e) =>{
         setFormState(state => ({
@@ -19,6 +20,14 @@ export default function LoginPage() {
             [e.target.name]: e.target.value,
         })
         )
+    }
+
+    const emailValidation = () => {
+             if(formState.email.length < 4){
+                setErrorState('Email Should be at least 4 characters long!')
+             }else{
+                setErrorState('')
+             }
     }
 
 
@@ -31,12 +40,16 @@ export default function LoginPage() {
                     <li>
                         <label htmlFor="email">Email:</label>
                         <input onChange={formChangeHandler}
+                            onBlur={emailValidation}
                             type="text"
                             className={styles.inputField}
                             id="email"
                             name="email"
                             value={formState.email}
                         />
+                           {errorState && (
+                            <p>{errorState}</p>
+                        )}
                     </li>
                     <li>
                         <label htmlFor="password">Password:</label>
