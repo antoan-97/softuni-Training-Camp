@@ -1,4 +1,3 @@
-/* Collection.module.css */
 .collectionBackground {
   background-image: url('/images/other-background.jpg'); /* Path to your collection page background */
   background-size: cover;
@@ -73,8 +72,9 @@
   opacity: 1;
   transform: rotateY(0deg);
 }
+
 .flipVertical {
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
 
@@ -102,30 +102,46 @@
   height: 100%;
   border-radius: 10px;
   object-fit: cover;
-  
+  position: relative;
+}
+
+.frontImage::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  border-radius: 10px;
 }
 
 .backContent {
   text-align: center;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  border-radius: 10px;
+  padding: 1em;
+}
+
+.backContent h1,
+.backContent h2,
+.backContent p {
+  margin: 0.5em 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for better visibility */
 }
 
 .backContent h1 {
-  margin-top: -8em;
-  font-size: 2.1em;
-  color: #fff;
+  font-size: 1.5em;
 }
 
 .backContent h2 {
-  font-size: 1.5rem;
-  color: #999;
-  margin: 1em 0;
+  font-size: 1.2em;
+  color: #ddd;
 }
 
 .backContent p {
-  font-size: 0.9125rem;
-  line-height: 1.8;
-  color: #999;
-  margin-bottom: 2em;
+  font-size: 1em;
+  color: #bbb;
 }
 
 .detailsButton {
