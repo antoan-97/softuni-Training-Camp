@@ -19,16 +19,25 @@
   padding: 20px;
 }
 
+.fightersWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 .flip {
   position: relative;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 30%;
   margin: 1em;
   width: 350px;
   transition: transform 0.2s ease-in-out; /* Add transition for smoothness */
 }
 
 .flip:hover {
-  transform: scale(1.05); /* Apply the zoom effect on hover */
+  transform: scale(1.05);
 }
 
 .flipFront, .flipBack {
@@ -64,6 +73,10 @@
   opacity: 1;
   transform: rotateY(0deg);
 }
+.flipVertical {
+  display:flex;
+  flex-direction: column;
+}
 
 .flipVertical .flipBack {
   transform: rotateX(-180deg);
@@ -77,10 +90,19 @@
   transform: rotateX(0deg);
 }
 
+.flipContainerFront {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 30%;
+  max-height: 200px;
+}
+
 .frontImage {
   width: 100%;
   height: 100%;
   border-radius: 10px;
+  object-fit: cover;
+  
 }
 
 .backContent {
