@@ -17,7 +17,7 @@ export default function FighterListItem({
         <div className={styles.backContent}>
           <h1 className={styles.frontHeading}>Name: {title}</h1>
           <h2 className={styles.flipContainerBackHeading}>Category: {category}</h2>
-          <p className={styles.flipContainerBackDescription}>Description: {description}</p>
+          {/* <p className={styles.flipContainerBackDescription}>Description: {description}</p> */}
           <Link to={`/fighters/${_id}/details`} className={styles.detailsButton}>Details</Link>
         </div>
       </div>
