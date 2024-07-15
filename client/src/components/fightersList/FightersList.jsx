@@ -19,16 +19,18 @@ export default function FightersList() {
 
     return (
         <section id="catalog-page">
+            <h1 className={styles.title}>UFC  Fighters List</h1>
 
-            <h1 className={styles.title}>All Fighters</h1>
 
-            {fighters.map(fighter =>  (
-                <FighterListItem key={fighter._id} {...fighter} />
-            ))}
+            <div className={styles.fightersWrapper}>
+                {fighters.map(fighter => (
+                    <FighterListItem key={fighter._id} {...fighter} />
+                ))}
 
-            {fighters.length === 0 &&   <h3 className='no-articles'>No articles yet</h3> }
+                {fighters.length === 0 && <h3 className='no-articles'>No articles yet</h3>}
+            </div>
 
-          
+
         </section>
     );
 }

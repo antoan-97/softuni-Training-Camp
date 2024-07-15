@@ -12,7 +12,7 @@ export default function LoginPage() {
 
 
     const [formState, setFormState] = useState(initialFormState);
-    const [errorState, setErrorState] = useState('')
+    // const [errorState, setErrorState] = useState('')
 
     const formChangeHandler = (e) => {
         setFormState(state => ({
@@ -21,23 +21,24 @@ export default function LoginPage() {
         })
         )
     }
+   
+    // Use it latter for register form
+    // const emailValidation = () => {
+    //     if (formState.email.length < 4) {
+    //         setErrorState({email: 'Email should be at least 4 characters long!'})
+    //     } else {
+    //         setErrorState({email:''})
+    //     }
+    // }
 
-    const emailValidation = () => {
-        if (formState.email.length < 4) {
-            setErrorState('Email should be at least 4 characters long!')
-        } else {
-            setErrorState('')
-        }
-    }
 
-
-    const passwordValidation = () => {
-        if (formState.password.length < 6){
-            setErrorState('Password should be at least 6 characters long!')
-        }else{
-            setErrorState('')
-        }
-    }
+    // const passwordValidation = () => {
+    //     if (formState.password.length < 6){
+    //         setErrorState({password:'Password should be at least 6 characters long!'})
+    //     }else{
+    //         setErrorState({password:''})
+    //     }
+    // }
 
 
     return (
@@ -49,28 +50,30 @@ export default function LoginPage() {
                         <li>
                             <label htmlFor="email">Email:</label>
                             <input onChange={formChangeHandler}
-                                onBlur={emailValidation}
+                                // onInput={emailValidation}
                                 type="text"
                                 className={styles.inputField}
                                 id="email"
                                 name="email"
                                 value={formState.email}
                             />
-                            {errorState && (
-                                <p>{errorState}</p>
-                            )}
+                            {/* {errorState.email && (
+                                <p>{errorState.email}</p>
+                            )} */}
                         </li>
                         <li>
                             <label htmlFor="password">Password:</label>
                             <input onChange={formChangeHandler}
-                                onBlur={passwordValidation}
+                                // onBlur={passwordValidation}
                                 type="password"
                                 className={styles.inputField}
                                 id="password"
                                 name="password"
                                 value={formState.password}
                             />
-                      
+                      {/* {errorState.password && (
+                                <p>{errorState.password}</p>
+                            )} */}
                         </li>
                         <li className={styles.centeredBtn}>
                             <button className={styles.loginButton}>Login</button>
