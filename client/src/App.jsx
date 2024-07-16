@@ -10,6 +10,7 @@ import CreatePage from './components/createPage/CreatePage'
 import FightersList from './components/fightersList/FightersList'
 import Footer from './components/footer/Footer'
 import FighterDetails from './components/fighter-details/FighterDetails'
+import AuthContext from './contexts/authContext'
 
 
 function App() {
@@ -19,12 +20,13 @@ function App() {
   }
 
   return (
+    <AuthContext.Provider value={{ loginSubmitHandler }}>
     <div className={styles.background}>
       <Navbar />
       <Routes>
         <Route path='/' element={<HomePage />}></Route>
         <Route path='/register' element={<RegisterPage />}></Route>
-        <Route path='/login' element={<LoginPage loginSubmitHandler={loginSubmitHandler} />}></Route>
+        <Route path='/login' element={<LoginPage />}></Route>
         <Route path='/create' element={<CreatePage />}></Route>
         <Route path='/fighters-list' element={<FightersList />}></Route>
         <Route path='/fighters/:fighterId/details' element={<FighterDetails />}></Route>
@@ -32,6 +34,7 @@ function App() {
 
       <Footer />
     </div>
+    </AuthContext.Provider>
   )
 }
 

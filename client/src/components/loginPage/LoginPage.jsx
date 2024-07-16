@@ -1,19 +1,18 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import useForm from '../../hooks/useForm';
 
 import styles from '../../styles/Login.module.css'
+import AuthContext from '../../contexts/authContext';
 
 
-export default function LoginPage({
-    loginSubmitHandler,
-}
-) {
+export default function LoginPage() {
 
-    const { values, onChange, onSubmit } = useForm(loginSubmitHandler,{
+    const { loginSubmitHandler } = useContext(AuthContext);
+    const { values, onChange, onSubmit } = useForm(loginSubmitHandler, {
         email: '',
         password: '',
     });
-
+    console.log('LoginPage values:', values);
 
     return (
         <section id="login-page" className={styles.loginSection}>
