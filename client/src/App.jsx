@@ -45,8 +45,13 @@ function App() {
     }
   };
 
+  const registerSubmitHandler = async (values) => {
+    console.log(values);
+  }
+
   const values = {
     loginSubmitHandler,
+    registerSubmitHandler,
     email: auth ? auth.email : null,
     isAuthenticated: !!auth.email
   };
