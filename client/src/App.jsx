@@ -46,7 +46,30 @@ function App() {
   };
 
   const registerSubmitHandler = async (values) => {
-    console.log(values);
+
+    // Basic validation
+    if (!values.email || !values.password || !values.repeatPassword) {
+      alert('Please enter all fields.');
+      return;
+    }
+
+    // Password match validation
+    if (values.password !== values.repeatPassword) {
+      alert('Passwords do not match.');
+      return;
+    }
+
+    // Call register service function
+    try {
+      const result = await authServices.register(values.email, values.password)
+      setAuth(result);
+      navigate('/');
+      
+      console.log('Registration successful:', result);
+    } catch (error) {
+      console.error('Registration failed:', error.message);
+      alert('Registration failed: ' + error.message);
+    }
   }
 
   const values = {
