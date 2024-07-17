@@ -45,8 +45,14 @@ function App() {
     }
   };
 
+  const values = {
+    loginSubmitHandler,
+    email: auth ? auth.email : null,
+    isAuthenticated: !!auth.email
+  };
+
   return (
-    <AuthContext.Provider value={{ loginSubmitHandler }}>
+    <AuthContext.Provider value={values}>
       <div className={styles.background}>
         <Navbar />
         <Routes>
