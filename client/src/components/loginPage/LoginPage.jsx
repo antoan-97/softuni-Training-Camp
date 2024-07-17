@@ -12,8 +12,7 @@ export default function LoginPage() {
         email: '',
         password: '',
     });
-    console.log('LoginPage values:', values);
-
+    
     return (
         <section id="login-page" className={styles.loginSection}>
             <div className={styles.loginContainer}>
