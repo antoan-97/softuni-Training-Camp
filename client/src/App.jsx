@@ -2,6 +2,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 
 import AuthContext from './contexts/authContext'
 import * as authServices from '../src/services/authService'
+import { useState } from 'react'
 
 import styles from './styles/Home.module.css'
 
@@ -9,11 +10,12 @@ import Navbar from './components/navbar/Navbar'
 import HomePage from './components/homePage/HomePage'
 import RegisterPage from './components/registerPage/RegisterPage'
 import LoginPage from './components/loginPage/LoginPage'
+import Logout from './components/Logout'
 import CreatePage from './components/createPage/CreatePage'
 import FightersList from './components/fightersList/FightersList'
 import Footer from './components/footer/Footer'
 import FighterDetails from './components/fighter-details/FighterDetails'
-import { useState } from 'react'
+
 
 
 
@@ -38,6 +40,7 @@ function App() {
     try {
       const result = await authServices.login(values.email, values.password);
       setAuth(result);
+      localStorage.setItem('accessToken', result.accessToken)
       navigate('/');
     } catch (error) {
       console.error('Login failed:', error.message);
@@ -62,19 +65,30 @@ function App() {
     // Call register service function
     try {
       const result = await authServices.register(values.email, values.password)
+
       setAuth(result);
+      localStorage.setItem('accessToken', result.accessToken)
+
       navigate('/');
-      
+
       console.log('Registration successful:', result);
     } catch (error) {
       console.error('Registration failed:', error.message);
       alert('Registration failed: ' + error.message);
     }
+  };
+
+  const logoutHandler = () => {
+    setAuth({});
+    localStorage.removeItem('accessToken')
+
+    navigate('/')
   }
 
   const values = {
     loginSubmitHandler,
     registerSubmitHandler,
+    logoutHandler,
     email: auth ? auth.email : null,
     isAuthenticated: !!auth.email
   };
@@ -87,6 +101,7 @@ function App() {
           <Route path='/' element={<HomePage />}></Route>
           <Route path='/register' element={<RegisterPage />}></Route>
           <Route path='/login' element={<LoginPage />}></Route>
+          <Route path='/logout' element={<Logout />}></Route>
           <Route path='/create' element={<CreatePage />}></Route>
           <Route path='/fighters-list' element={<FightersList />}></Route>
           <Route path='/fighters/:fighterId/details' element={<FighterDetails />}></Route>
