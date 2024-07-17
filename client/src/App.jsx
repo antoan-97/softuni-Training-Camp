@@ -19,15 +19,30 @@ import { useState } from 'react'
 
 function App() {
   const navigate = useNavigate()
-  const [auth, setAutch] = useState({})
+  const [auth, setAuth] = useState({})
 
   const loginSubmitHandler = async (values) => {
+    // Basic validation
+    if (!values.email || !values.password) {
+      alert('Please enter both email and password.');
+      return;
+    }
 
-    const result = await authServices.login(values.email, values.password);
+    // Simple email format validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(values.email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
 
-    setAutch(result);
-
-    navigate('/')
+    try {
+      const result = await authServices.login(values.email, values.password);
+      setAuth(result);
+      navigate('/');
+    } catch (error) {
+      console.error('Login failed:', error.message);
+      alert('Login failed: ' + error.message);
+    }
   };
 
   return (
