@@ -11,7 +11,7 @@
 .detailsHeading {
     font-size: 40px; /* Increase the font size */
     font-weight: bold;
-    text-align: center;
+    text-align: left;
     margin-bottom: 20px;
     margin-top: -40px; /* Move the heading higher */
     line-height: 1.2;

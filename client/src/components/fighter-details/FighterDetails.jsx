@@ -22,7 +22,7 @@ export default function FighterDetails() {
                 <div className={styles.cardLeft}>
                     <div className={styles.cardDetails}>
 
-                        <h2>Name: {fighter.title}</h2>
+                        <h2>{fighter.title}</h2>
                         <div className={styles.cardFighter}>
                             <p className={styles.wins}>Wins: {fighter.wins}</p>
                             <p className={styles.loses}>Loses: {fighter.loses}</p>
