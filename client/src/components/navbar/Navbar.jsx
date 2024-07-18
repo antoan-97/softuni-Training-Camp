@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import AuthContext from '../../contexts/authContext';
 
 export default function Navbar() {
-    const isAuthenticated  = useContext(AuthContext)
+    const { isAuthenticated } = useContext(AuthContext)
 
     return (
         <nav className={styles.navbar}>
