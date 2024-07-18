@@ -17,11 +17,12 @@ export default function FighterDetails() {
     return (
 
         <section id="details-page" className={styles.detailsPage}>
+            <h1 className={styles.detailsHeading}>Details Page</h1>
             <div className={styles.mainCard}>
                 <div className={styles.cardLeft}>
                     <div className={styles.cardDetails}>
 
-                        <h1>Name: {fighter.title}</h1>
+                        <h2>Name: {fighter.title}</h2>
                         <div className={styles.cardFighter}>
                             <p className={styles.wins}>Wins: {fighter.wins}</p>
                             <p className={styles.loses}>Loses: {fighter.loses}</p>
@@ -54,9 +55,15 @@ export default function FighterDetails() {
                 </div>
                 <div className={styles.cardRight}>
                     <img src={fighter.imageUrl} alt={fighter.title} className={styles.fighterImage} />
-                </div>
+                    <div className={styles.buttonContainer}>
+                        <button className={styles.detailsButton}>Edit</button>
+                        <button className={styles.detailsButton}>Delete</button>
+                        <button className={styles.detailsButton}>Sign Up</button>
+
+                    </div>
             </div>
-        </section>
+        </div>
+        </section >
     );
 
 
