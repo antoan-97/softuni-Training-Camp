@@ -21,7 +21,11 @@ import FighterDetails from './components/fighter-details/FighterDetails'
 
 function App() {
   const navigate = useNavigate()
-  const [auth, setAuth] = useState({})
+  const [auth, setAuth] = useState(() => {
+    localStorage.removeItem('accessToken');
+
+    return {};
+  })
 
   const loginSubmitHandler = async (values) => {
     // Basic validation
