@@ -1,9 +1,11 @@
+import styles from '../../styles/Collection.module.css';
+
 import { useEffect, useState } from 'react';
 
 import * as fighterService from '../../services/fighterService'
 
-import styles from '../../styles/Collection.module.css';
 import FighterListItem from './fighterListItem/FighterListItem';
+import AuthContext from '../../contexts/authContext';
 
 export default function FightersList() {
 

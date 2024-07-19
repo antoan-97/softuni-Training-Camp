@@ -1,11 +1,15 @@
 import styles from '../../styles/FighterDetails.module.css'
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
+
+import AuthContext from '../../contexts/authContext';
 
 import * as fighterService from '../../services/fighterService'
 
 export default function FighterDetails() {
+    const { isAuthenticated } = useContext(AuthContext)
+
     const [fighter, setFighter] = useState({});
     const { fighterId } = useParams();
 
@@ -58,11 +62,12 @@ export default function FighterDetails() {
                     <div className={styles.buttonContainer}>
                         <button className={styles.detailsButton}>Edit</button>
                         <button className={styles.detailsButton}>Delete</button>
-                        <button className={styles.detailsButton}>Sign Up</button>
+                        {isAuthenticated && (<button className={styles.detailsButton}>Sign Up</button>)}
+
 
                     </div>
+                </div>
             </div>
-        </div>
         </section >
     );
 
