@@ -1,6 +1,6 @@
 import { json } from "react-router-dom";
 
-const baseUrl = 'http://localhost:3030/jsonstore/fighters'
+const baseUrl = 'http://localhost:3030/data/fighters'
 
 export const create = async (fighterData) => {
 
@@ -33,7 +33,7 @@ export const getAll = async () => {
     const result = await response.json()
 
 
-    return Object.values(result)
+    return result;
 }
 
 export const getOne = async (fighterId) => {
