@@ -84,7 +84,9 @@ function App() {
 
   const logoutHandler = () => {
     setAuth({});
-    localStorage.removeItem('accessToken')
+    console.log('Token before logout:', localStorage.getItem('accessToken'));
+    localStorage.removeItem('accessToken');
+    console.log('Token after logout:', localStorage.getItem('accessToken'));
 
     navigate('/')
   }

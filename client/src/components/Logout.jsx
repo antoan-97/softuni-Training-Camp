@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 
 import * as authServices from '../services/authService'
+import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../contexts/authContext";
 
@@ -18,7 +19,7 @@ export default function  Logout() {
                 console.error("Logout failed:", error.message);
                 navigate('/');
             });
-    }, []);
+    }, [logoutHandler]);
 
     return null;
 }

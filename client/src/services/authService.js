@@ -1,11 +1,11 @@
-import { json } from "react-router-dom"
 
 const baseUrl = 'http://localhost:3030/users'
 
 const getToken = () => {
-    return localStorage.getItem('accessToken');
+    const token = localStorage.getItem('accessToken');
+    console.log('Retrieved token:', token); // Log the token
+    return token;
 };
-
 
 export const login = async (email, password) => {
     const response = await fetch(`${baseUrl}/login`, {
@@ -73,7 +73,7 @@ export const logout = async () => {
             throw new Error(`Failed to logout: ${errorText}`);
         }
 
-        const result = await response.json();
+        const result = response
         return result;
     } catch (error) {
         throw new Error(`Failed to logout: ${error.message}`);
