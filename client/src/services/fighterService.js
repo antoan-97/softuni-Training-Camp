@@ -1,22 +1,34 @@
-import { json } from "react-router-dom";
+const baseUrl = 'http://localhost:3030/data/fighters';
 
-const baseUrl = 'http://localhost:3030/data/fighters'
+const getToken = () => {
+    const token = localStorage.getItem('accessToken');
+    console.log('Retrieved token:', token); // Log the token
+    return token;
+};
 
 export const create = async (fighterData) => {
+    const token = getToken(); // Retrieve token from local storage
 
-    const resposne = await fetch(baseUrl, {
+    if (!token) {
+        throw new Error('No access token found');
+    }
+
+    const response = await fetch(baseUrl, {
         method: 'POST',
         headers: {
-            'content-type': 'application/json'
+            'content-type': 'application/json',
+            'X-Authorization': token // Use X-Authorization header
         },
         body: JSON.stringify(fighterData)
-    })
+    });
 
-    const result = await resposne.json();
+    if (!response.ok) {
+        throw new Error('Network response was not ok ' + response.statusText);
+    }
 
+    const result = await response.json();
     return result;
-}
-
+};
 
 export const getAll = async () => {
     const response = await fetch(baseUrl, {
@@ -24,17 +36,15 @@ export const getAll = async () => {
         headers: {
             'content-type': 'application/json'
         },
-    })
+    });
 
     if (!response.ok) {
-        throw new Error('Network response was not ok' + response.statusText);
+        throw new Error('Network response was not ok ' + response.statusText);
     }
 
-    const result = await response.json()
-
-
+    const result = await response.json();
     return result;
-}
+};
 
 export const getOne = async (fighterId) => {
     const response = await fetch(`${baseUrl}/${fighterId}`, {
@@ -45,11 +55,9 @@ export const getOne = async (fighterId) => {
     });
 
     if (!response.ok) {
-        throw new Error('Network response was not ok' + response.statusText);
+        throw new Error('Network response was not ok ' + response.statusText);
     }
 
-    const result = await response.json()
-
-
-    return result
-}
+    const result = await response.json();
+    return result;
+};
