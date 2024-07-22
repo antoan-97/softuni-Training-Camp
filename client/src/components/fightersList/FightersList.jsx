@@ -14,6 +14,9 @@ export default function FightersList() {
     useEffect(() => {
         fighterService.getAll()
             .then(result => setFighters(result))
+            .catch(err =>{
+                console.log(err);
+            })
     }, []);
 
     console.log(fighters);
