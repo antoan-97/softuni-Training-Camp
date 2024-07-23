@@ -85,7 +85,8 @@ export const AuthProvider = ({
         registerSubmitHandler,
         logoutHandler,
         email: auth ? auth.email : null,
-        isAuthenticated: !!auth.email
+        userId: auth._id,
+        isAuthenticated: !!auth.email 
     };
     return (
         <AuthContext.Provider value={values}>

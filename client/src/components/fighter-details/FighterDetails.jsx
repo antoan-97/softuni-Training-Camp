@@ -8,7 +8,7 @@ import AuthContext from '../../contexts/authContext';
 import * as fighterService from '../../services/fighterService'
 
 export default function FighterDetails() {
-    const { isAuthenticated } = useContext(AuthContext)
+    const { isAuthenticated, userId } = useContext(AuthContext)
 
     const [fighter, setFighter] = useState({});
     const { fighterId } = useParams();
@@ -17,6 +17,8 @@ export default function FighterDetails() {
         fighterService.getOne(fighterId)
             .then(setFighter)
     }, [fighterId]);
+
+    const isOwner = userId === fighter._ownerId
 
     return (
 
@@ -60,9 +62,15 @@ export default function FighterDetails() {
                 <div className={styles.cardRight}>
                     <img src={fighter.imageUrl} alt={fighter.title} className={styles.fighterImage} />
                     <div className={styles.buttonContainer}>
-                        <button className={styles.detailsButton}>Edit</button>
-                        <button className={styles.detailsButton}>Delete</button>
-                        {isAuthenticated && (<button className={styles.detailsButton}>Sign Up</button>)}
+                        {isOwner && (
+                            <div className='ownerButtons'>
+                                <button className={styles.detailsButton}>Edit</button>
+                                <button className={styles.detailsButton}>Delete</button>
+                            </div>
+                        )}
+
+
+                        {isAuthenticated && !isOwner && (<button className={styles.detailsButton}>Sign Up</button>)}
 
 
                     </div>
