@@ -63,7 +63,7 @@ export default function FighterDetails() {
                     <img src={fighter.imageUrl} alt={fighter.title} className={styles.fighterImage} />
                     <div className={styles.buttonContainer}>
                         {isOwner && (
-                            <div className='ownerButtons'>
+                            <div className={styles.ownerButtons}>
                                 <button className={styles.detailsButton}>Edit</button>
                                 <button className={styles.detailsButton}>Delete</button>
                             </div>

@@ -81,6 +81,11 @@
     gap: 10px; /* Add space between buttons */
 }
 
+.ownerButtons {
+    display: flex; /* Display buttons inline */
+    gap: 20px; /* Add space between buttons */
+}
+
 .detailsButton {
     display: inline-block;
     padding: 10px 30px;
