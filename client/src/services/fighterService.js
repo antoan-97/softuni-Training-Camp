@@ -61,3 +61,30 @@ export const getOne = async (fighterId) => {
     const result = await response.json();
     return result;
 };
+
+
+export const update = async (fighterId, fighterData) => {
+    const token = getToken(); // Retrieve token from local storage
+
+    if (!token) {
+        throw new Error('No access token found');
+    }
+
+
+    const response = await fetch(`${baseUrl}/${fighterId}`, {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json',
+            'X-Authorization': token
+        },
+        body: JSON.stringify(fighterData)
+    });
+
+    if (!response.ok) {
+        throw new Error('Network response was not ok ' + response.statusText);
+    }
+
+    const result = await response.json();
+    return result;
+
+};
