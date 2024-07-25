@@ -1,7 +1,7 @@
 import styles from '../../styles/FighterDetails.module.css'
 
 import { useEffect, useState, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import AuthContext from '../../contexts/authContext';
 
@@ -64,8 +64,8 @@ export default function FighterDetails() {
                     <div className={styles.buttonContainer}>
                         {isOwner && (
                             <div className={styles.ownerButtons}>
-                                <button className={styles.detailsButton}>Edit</button>
-                                <button className={styles.detailsButton}>Delete</button>
+                                <Link to={`/fighters/${fighterId}/edit`} className={styles.detailsButton}>Edit</Link>
+                                <Link to={`/fighters/${fighterId}/delete`} className={styles.detailsButton}>Delete</Link>
                             </div>
                         )}
 
