@@ -4,6 +4,9 @@ import { AuthProvider } from './contexts/authContext'
 
 import styles from './styles/Home.module.css'
 
+import AuthGuard from './guards/AuthGuard'
+import GuestGuard from './guards/GuestGuard'
+
 import Navbar from './components/navbar/Navbar'
 import HomePage from './components/homePage/HomePage'
 import RegisterPage from './components/registerPage/RegisterPage'
@@ -14,8 +17,7 @@ import FightersList from './components/fightersList/FightersList'
 import Footer from './components/footer/Footer'
 import FighterDetails from './components/fighter-details/FighterDetails'
 import EditPage from './components/editPage/EditPage'
-import AuthGuard from './guards/AuthGuard'
-import GuestGuard from './guards/GuestGuard'
+import { useContext } from 'react'
 
 
 
@@ -32,6 +34,7 @@ function App() {
           <Route path='/fighters-list' element={<FightersList />}></Route>
           <Route path='/fighters/:fighterId/details' element={<FighterDetails />}></Route>
           <Route path='/fighters/:fighterId/edit' element={<EditPage />}></Route>
+
 
           <Route element={<AuthGuard />}>
             <Route path='/logout' element={<Logout />}></Route>

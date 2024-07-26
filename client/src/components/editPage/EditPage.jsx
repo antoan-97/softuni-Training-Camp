@@ -1,13 +1,14 @@
 import styles from '../../styles/Create.module.css';
-
 import { useNavigate, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-
+import { useEffect, useState, useContext } from 'react';
+import AuthContext from '../../contexts/authContext';
 import * as fighterService from '../../services/fighterService';
 
 export default function EditPage() {
   const navigate = useNavigate();
   const { fighterId } = useParams();
+  const { userId } = useContext(AuthContext); // Get the user ID from context
+
   const [fighter, setFighter] = useState({
     title: '',
     category: '',
@@ -18,14 +19,26 @@ export default function EditPage() {
     description: '',
   });
 
+  const [isOwner, setIsOwner] = useState(true); // Initialize as true
+
   useEffect(() => {
+    const fetchFighter = async () => {
       try {
-        fighterService.getOne(fighterId)
-        .then(setFighter)
+        const fetchedFighter = await fighterService.getOne(fighterId);
+        setFighter(fetchedFighter);
+
+        if (userId !== fetchedFighter._ownerId) {
+          setIsOwner(false);
+          navigate('/'); // Redirect if not owner
+        }
       } catch (error) {
         console.log(error);
+        navigate('/'); // Redirect on error
       }
-  }, [fighterId]);
+    };
+
+    fetchFighter();
+  }, [fighterId, userId, navigate]);
 
   const editFighterHandler = async (e) => {
     e.preventDefault();
@@ -45,6 +58,11 @@ export default function EditPage() {
       [e.target.name]: e.target.value,
     });
   };
+
+  // Optionally, render a loading indicator or nothing until the ownership check is complete
+  if (!isOwner) {
+    return null; // Or a loading spinner if preferred
+  }
 
   return (
     <section id="edit-page" className={styles.newPostSection}>
