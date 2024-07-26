@@ -3,9 +3,6 @@ import AuthContext from "../contexts/authContext";
 import { useContext } from "react";
 
 
-
-
-
 export default function AuthGuard() {
     const { isAuthenticated } = useContext(AuthContext)
 

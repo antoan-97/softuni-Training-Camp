@@ -15,6 +15,7 @@ import Footer from './components/footer/Footer'
 import FighterDetails from './components/fighter-details/FighterDetails'
 import EditPage from './components/editPage/EditPage'
 import AuthGuard from './guards/AuthGuard'
+import GuestGuard from './guards/GuestGuard'
 
 
 
@@ -28,8 +29,6 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<HomePage />}></Route>
-          <Route path='/register' element={<RegisterPage />}></Route>
-          <Route path='/login' element={<LoginPage />}></Route>
           <Route path='/fighters-list' element={<FightersList />}></Route>
           <Route path='/fighters/:fighterId/details' element={<FighterDetails />}></Route>
           <Route path='/fighters/:fighterId/edit' element={<EditPage />}></Route>
@@ -39,13 +38,16 @@ function App() {
             <Route path='/create' element={<CreatePage />}></Route>
           </Route>
 
-          <Route element={}
+          <Route element={<GuestGuard />}>
+            <Route path='/register' element={<RegisterPage />}></Route>
+            <Route path='/login' element={<LoginPage />}></Route>
+          </Route>
 
         </Routes>
 
         <Footer />
       </div>
-    </AuthProvider>
+    </AuthProvider >
   )
 }
 
