@@ -17,7 +17,6 @@ import FightersList from './components/fightersList/FightersList'
 import Footer from './components/footer/Footer'
 import FighterDetails from './components/fighter-details/FighterDetails'
 import EditPage from './components/editPage/EditPage'
-import { useContext } from 'react'
 
 
 
