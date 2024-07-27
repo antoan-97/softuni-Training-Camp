@@ -1,9 +1,10 @@
 import styles from '../../styles/FighterDetails.module.css'
 
 import { useEffect, useState, useContext } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 import AuthContext from '../../contexts/authContext';
+import DeleteModal from '../deleteModal/DeleteModal';
 
 import * as fighterService from '../../services/fighterService'
 
@@ -12,6 +13,7 @@ export default function FighterDetails() {
 
     const [fighter, setFighter] = useState({});
     const { fighterId } = useParams();
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
 
     useEffect(() => {
         fighterService.getOne(fighterId)
@@ -19,6 +21,18 @@ export default function FighterDetails() {
     }, [fighterId]);
 
     const isOwner = userId === fighter._ownerId
+    const navigate = useNavigate()
+
+    const handleDelete = async () => {
+        try {
+            await fighterService.remove(fighterId)
+            navigate('/fighters-list')
+            console.log('Fighter deleted successful ');
+        } catch (error) {
+            console.error("Failed to delete the fighter:", error);
+            navigate(`/fighters/${fighterId}/details`)
+        }
+    }
 
     return (
 
@@ -65,7 +79,7 @@ export default function FighterDetails() {
                         {isOwner && (
                             <div className={styles.ownerButtons}>
                                 <Link to={`/fighters/${fighterId}/edit`} className={styles.detailsButton}>Edit</Link>
-                                <Link to={`/fighters/${fighterId}/delete`} className={styles.detailsButton}>Delete</Link>
+                                <button onClick={() => setShowDeleteModal(true)} className={styles.detailsButton}>Delete</button>
                             </div>
                         )}
 
@@ -76,6 +90,11 @@ export default function FighterDetails() {
                     </div>
                 </div>
             </div>
+            <DeleteModal
+                show={showDeleteModal}
+                onClose={() => setShowDeleteModal(false)}
+                onDelete={handleDelete}
+            />
         </section >
     );
 

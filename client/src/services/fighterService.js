@@ -88,3 +88,27 @@ export const update = async (fighterId, fighterData) => {
     return result;
 
 };
+
+export const remove = async (fighterId) => {
+    const token = getToken();   
+
+    try {
+        const response = await fetch(`${baseUrl}/${fighterId}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json',
+                'X-Authorization': token
+            },
+        });
+
+        if (!response.ok) {
+            const errorResponse = await response.json();
+            console.error('Error response:', errorResponse);
+            throw new Error('Failed to delete fighter')
+        }
+    } catch (error) {
+        console.log('Error deleting fighter');
+        throw error;
+    }
+};
+
