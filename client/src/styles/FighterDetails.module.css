@@ -9,11 +9,13 @@
 }
 
 .detailsHeading {
-    font-size: 40px; /* Increase the font size */
+    font-size: 40px;
+    /* Increase the font size */
     font-weight: bold;
     text-align: left;
     margin-bottom: 20px;
-    margin-top: -40px; /* Move the heading higher */
+    margin-top: -40px;
+    /* Move the heading higher */
     line-height: 1.2;
 }
 
@@ -21,7 +23,8 @@
     color: #fff;
     display: flex;
     max-width: 950px;
-    background: #03434C; /* Fallback for older browsers */
+    background: #03434C;
+    /* Fallback for older browsers */
     background: linear-gradient(to right, #03434C, #08272C);
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
 }
@@ -62,7 +65,8 @@
 .cardRight {
     width: 40%;
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
+    flex-direction: column;
+    /* Stack elements vertically */
     justify-content: center;
     align-items: center;
 }
@@ -72,18 +76,23 @@
     height: auto;
     border-radius: 5px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    margin-bottom: 20px; /* Add some space below the image */
+    margin-bottom: 20px;
+    /* Add some space below the image */
 }
 
 .buttonContainer {
-    display: flex; /* Display buttons inline */
+    display: flex;
+    /* Display buttons inline */
     justify-content: center;
-    gap: 10px; /* Add space between buttons */
+    gap: 10px;
+    /* Add space between buttons */
 }
 
 .ownerButtons {
-    display: flex; /* Display buttons inline */
-    gap: 20px; /* Add space between buttons */
+    display: flex;
+    /* Display buttons inline */
+    gap: 20px;
+    /* Add space between buttons */
 }
 
 .detailsButton {
@@ -102,4 +111,20 @@
 .detailsButton:hover {
     background-color: rgba(20, 20, 20, 0.8);
     transform: scale(1.1);
+}
+.thanksForSigning {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #e2ddc7; /* Bright yellow color */
+    background-color: #03434C; /* Match the card background */
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.thanksForSigning:hover {
+    transform: scale(1.05);
 }

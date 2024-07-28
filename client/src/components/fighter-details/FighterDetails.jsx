@@ -12,12 +12,16 @@ export default function FighterDetails() {
     const { isAuthenticated, userId } = useContext(AuthContext)
 
     const [fighter, setFighter] = useState({});
+    const [hasSigned, setHasSigned] = useState(false);
     const { fighterId } = useParams();
     const [showDeleteModal, setShowDeleteModal] = useState(false);
 
     useEffect(() => {
         fighterService.getOne(fighterId)
             .then(setFighter)
+
+        const signedStatus = localStorage.getItem(`signed_${userId}_${fighterId}`);
+        setHasSigned(signedStatus === 'true');
     }, [fighterId]);
 
     const isOwner = userId === fighter._ownerId
@@ -32,6 +36,11 @@ export default function FighterDetails() {
             console.error("Failed to delete the fighter:", error);
             navigate(`/fighters/${fighterId}/details`)
         }
+    }
+
+    const handleSignUp = () => {
+        setHasSigned(true)
+        localStorage.setItem(`signed_${userId}_${fighterId}`, true)
     }
 
     return (
@@ -50,27 +59,6 @@ export default function FighterDetails() {
                         </div>
 
                         <p className={styles.description}>Description: {fighter.description}</p>
-
-                        {/* Conditional rendering based on user authentication */}
-                        {/* Replace with your conditional logic */}
-                        {/* Example: */}
-                        {/* {user && ( */}
-                        {/*     <div className={styles.socialBtn}> */}
-                        {/*         {isOwner && ( */}
-                        {/*             <> */}
-                        {/*                 <a href={`/fighters-list/${fighter._id}/edit`} className={styles.editBtn}>Edit</a> */}
-                        {/*                 <a href={`/fighter-list/${fighter._id}/delete`} className={styles.delBtn}>Delete</a> */}
-                        {/*             </> */}
-                        {/*         )} */}
-                        {/*         {!isOwner && hasSigned && ( */}
-                        {/*             <p className={styles.thanksForSign}>Thanks For Signing</p> */}
-                        {/*         )} */}
-                        {/*         {!isOwner && !hasSigned && ( */}
-                        {/*             <a href={`/fighters-list/${fighter._id}/signUp`} className={styles.signUp}>Sign</a> */}
-                        {/*         )} */}
-                        {/*     </div> */}
-                        {/* )} */}
-
                     </div>
                 </div>
                 <div className={styles.cardRight}>
@@ -82,10 +70,15 @@ export default function FighterDetails() {
                                 <button onClick={() => setShowDeleteModal(true)} className={styles.detailsButton}>Delete</button>
                             </div>
                         )}
-
-
-                        {isAuthenticated && !isOwner && (<button className={styles.detailsButton}>Sign Up</button>)}
-
+                        {isAuthenticated && !isOwner && (
+                            <>
+                                {hasSigned ? (
+                                    <p className={styles.thanksForSigning}>Let's Do This! You're Officially in the {fighter.title} Training Camp!</p>
+                                ) : (
+                                    <button onClick={handleSignUp} className={styles.detailsButton}>Sign Up</button>
+                                )}
+                            </>
+                        )}
 
                     </div>
                 </div>
