@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import styles from '../../styles/DeleteModal.module.css'
-import AuthContext from '../../contexts/authContext';
 
 export default function DeleteModal({ show, onClose, onDelete }) {
     if (!show) {
