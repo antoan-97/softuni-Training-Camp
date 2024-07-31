@@ -45,6 +45,7 @@ function App() {
             <Route path='/login' element={<LoginPage />}></Route>
           </Route>
 
+          <Route path="*" element={<HomePage />} /> {/* Handles unmatched routes */}
         </Routes>
 
         <Footer />
