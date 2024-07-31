@@ -49,6 +49,18 @@ export const AuthProvider = ({
             return;
         }
 
+        //Email min length validation
+        if (values.email.length < 3) {
+            alert('Email should be at least 3 characters long!');
+            return;
+        }
+
+        //Password min length value
+        if (values.password.length < 6) {
+            alert('Passwords must be at least 6 characters long!');
+            return;
+        }
+
         // Password match validation
         if (values.password !== values.repeatPassword) {
             alert('Passwords do not match.');
@@ -86,7 +98,7 @@ export const AuthProvider = ({
         logoutHandler,
         email: auth ? auth.email : null,
         userId: auth._id,
-        isAuthenticated: !!auth.email 
+        isAuthenticated: !!auth.email
     };
     return (
         <AuthContext.Provider value={values}>
