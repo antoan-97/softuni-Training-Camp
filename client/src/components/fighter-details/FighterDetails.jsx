@@ -19,10 +19,17 @@ export default function FighterDetails() {
     useEffect(() => {
         fighterService.getOne(fighterId)
             .then(setFighter)
+            .catch(error => console.error("Error fetching fighter:", error));
 
-        const signedStatus = localStorage.getItem(`signed_${userId}_${fighterId}`);
-        setHasSigned(signedStatus === 'true');
-    }, [fighterId]);
+        if (userId) {
+            fighterService.checkSignUpStatus(userId, fighterId)
+                .then(response => setHasSigned(response.some(item => item.userId === userId && item.fighterId === fighterId)))
+                .catch(error => console.log('Error fetching fighter', error));
+        }
+
+
+    }, [fighterId, userId]);
+
 
     const isOwner = userId === fighter._ownerId
     const navigate = useNavigate()
@@ -38,10 +45,17 @@ export default function FighterDetails() {
         }
     }
 
-    const handleSignUp = () => {
-        setHasSigned(true)
-        localStorage.setItem(`signed_${userId}_${fighterId}`, true)
+    const handleSignUp = async () => {
+
+        try {
+            await fighterService.signUpForFighter(fighterId, userId);
+            setHasSigned(true);
+
+        } catch (error) {
+            console.log('Failed to sign up', error);
+        }
     }
+
 
     return (
 
@@ -93,3 +107,35 @@ export default function FighterDetails() {
 
 
 }
+
+// Save in localstoage ( wrong way)
+
+// useEffect(() => {
+//     fighterService.getOne(fighterId)
+//         .then(setFighter)
+//         .catch(error => console.error("Error fetching fighter:", error));
+
+//     const signedStatus = localStorage.getItem(`signed_${userId}_${fighterId}`);
+//     setHasSigned(signedStatus === 'true');
+// }, [fighterId]);
+
+
+
+// const handleSignUp = () => {
+//     setHasSigned(true)
+//     localStorage.setItem(`signed_${userId}_${fighterId}`, true)
+// }
+
+// ----------------------------------------------------------------------------------------------
+
+//Right(or at least working) way : some method checks if array includes fighterId and userId and return true if it
+
+//     if ( userId) {
+//         fighterService.checkSignUpStatus(userId, fighterId)
+//             .then(result => {
+//                 // Check if the result array has any entries
+//                 setHasSigned(result.some(item => item.userId === userId && item.fighterId === fighterId));
+//             })
+//             .catch(error => console.log('Error fetching sign-up status:', error));
+//     }
+// }, [fighterId, userId, ]);
