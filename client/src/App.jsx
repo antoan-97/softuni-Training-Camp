@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 
 import { AuthProvider } from './contexts/authContext'
 
-import styles from './styles/Home.module.css'
+import styles from './styles/Global.module.css'
 
 import AuthGuard from './guards/AuthGuard'
 import GuestGuard from './guards/GuestGuard'
@@ -17,6 +17,7 @@ import FightersList from './components/fightersList/FightersList'
 import Footer from './components/footer/Footer'
 import FighterDetails from './components/fighter-details/FighterDetails'
 import EditPage from './components/editPage/EditPage'
+import ScrollToTop from './components/scrollToTop/ScrollToTop'
 
 
 
@@ -26,8 +27,9 @@ function App() {
 
   return (
     <AuthProvider>
-      <div className={styles.background}>
-        <Navbar />
+      <div className={styles.global}>
+        <Navbar/>
+        <ScrollToTop />
         <Routes>
           <Route path='/' element={<HomePage />}></Route>
           <Route path='/fighters-list' element={<FightersList />}></Route>
