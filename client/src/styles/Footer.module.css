@@ -1,8 +1,11 @@
 .footer {
   background-color: #2d0000;
   color: #ffffff;
-  padding: 40px 0;
-  text-align:center;
+  padding: 5px 5px;
+  text-align: center;
+  width: 100%; /* Ensure it spans the full width */
+  position: relative; /* Adjust positioning if needed */
+  z-index: 1; /* Ensure it is on top of the background */
 }
 
 .footer__address {

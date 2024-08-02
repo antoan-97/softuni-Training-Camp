@@ -26,58 +26,60 @@ export default function CreatePage() {
   }
 
   return (
-    <section id="new-post-page" className={styles.newPostSection}>
+      <section id="new-post-page" className={styles.background}>
+    <div className={styles.newPostSection}>
 
-      <form onSubmit={createFighterHandler} className={styles.newPostForm}>
-        <h2>Create New Fighter</h2>
-        <div className={styles.formContainer} >
+        <form onSubmit={createFighterHandler} className={styles.newPostForm}>
+          <h2>Create New Fighter</h2>
+          <div className={styles.formContainer} >
 
-          <label htmlFor="name">Fighter Name:</label>
-          <input
-            type="text"
-            className={styles.inputField}
-            id="name"
-            name="title"
-          />
+            <label htmlFor="name">Fighter Name:</label>
+            <input
+              type="text"
+              className={styles.inputField}
+              id="name"
+              name="title"
+            />
 
-          <label htmlFor="category">Category:</label>
-          <input
-            type="text"
-            className={styles.inputField}
-            id="category"
-            name="category"
-          />
+            <label htmlFor="category">Category:</label>
+            <input
+              type="text"
+              className={styles.inputField}
+              id="category"
+              name="category"
+            />
 
-          <label htmlFor="image">Image URL:</label>
-          <input
-            type="text"
-            className={styles.inputField}
-            id="imageUrl"
-            name="imageUrl"
-          />
+            <label htmlFor="image">Image URL:</label>
+            <input
+              type="text"
+              className={styles.inputField}
+              id="imageUrl"
+              name="imageUrl"
+            />
 
-          <label htmlFor="wins">Wins:</label>
-          <input type="number" className={styles.inputField} id="wins" name="wins" required />
+            <label htmlFor="wins">Wins:</label>
+            <input type="number" className={styles.inputField} id="wins" name="wins" required />
 
-          <label htmlFor="loses">Loses:</label>
-          <input type="number" className={styles.inputField} id="loses" name="loses" required />
+            <label htmlFor="loses">Loses:</label>
+            <input type="number" className={styles.inputField} id="loses" name="loses" required />
 
-          <label htmlFor="weight">Weight:</label>
-          <input type="text" className={styles.inputField} id="weight" name="weight" required />
+            <label htmlFor="weight">Weight:</label>
+            <input type="number" className={styles.inputField} id="weight" name="weight" required />
 
-          <label htmlFor="description">Description:</label>
-          <textarea
-            id="description"
-            className={styles.inputField}
-            name="description"
-          />
+            <label htmlFor="description">Description:</label>
+            <textarea
+              id="description"
+              className={styles.inputField}
+              name="description"
+            />
 
 
-          <div className={styles.centeredButton}>
-            <button type="submit" className={styles.createButton}>Create</button>
+            <div className={styles.centeredButton}>
+              <button type="submit" className={styles.createButton}>Create</button>
+            </div>
           </div>
-        </div>
-      </form>
-    </section>
+        </form>
+    </div>
+      </section>
   );
 }

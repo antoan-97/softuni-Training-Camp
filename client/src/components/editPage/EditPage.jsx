@@ -65,87 +65,89 @@ export default function EditPage() {
   }
 
   return (
-    <section id="edit-page" className={styles.newPostSection}>
-      <form onSubmit={editFighterHandler} className={styles.newPostForm}>
-        <h2>Edit Fighter</h2>
-        <div className={styles.formContainer}>
-          <label htmlFor="name">Fighter Name:</label>
-          <input
-            type="text"
-            className={styles.inputField}
-            id="name"
-            name="title"
-            value={fighter.title}
-            onChange={handleChange}
-          />
+    <section id="edit-page" className={styles.background}>
+      <div className={styles.newPostSection}>
+        <form onSubmit={editFighterHandler} className={styles.newPostForm}>
+          <h2>Edit Fighter</h2>
+          <div className={styles.formContainer}>
+            <label htmlFor="name">Fighter Name:</label>
+            <input
+              type="text"
+              className={styles.inputField}
+              id="name"
+              name="title"
+              value={fighter.title}
+              onChange={handleChange}
+            />
 
-          <label htmlFor="category">Category:</label>
-          <input
-            type="text"
-            className={styles.inputField}
-            id="category"
-            name="category"
-            value={fighter.category}
-            onChange={handleChange}
-          />
+            <label htmlFor="category">Category:</label>
+            <input
+              type="text"
+              className={styles.inputField}
+              id="category"
+              name="category"
+              value={fighter.category}
+              onChange={handleChange}
+            />
 
-          <label htmlFor="image">Image URL:</label>
-          <input
-            type="text"
-            className={styles.inputField}
-            id="imageUrl"
-            name="imageUrl"
-            value={fighter.imageUrl}
-            onChange={handleChange}
-          />
+            <label htmlFor="image">Image URL:</label>
+            <input
+              type="text"
+              className={styles.inputField}
+              id="imageUrl"
+              name="imageUrl"
+              value={fighter.imageUrl}
+              onChange={handleChange}
+            />
 
-          <label htmlFor="wins">Wins:</label>
-          <input
-            type="number"
-            className={styles.inputField}
-            id="wins"
-            name="wins"
-            required
-            value={fighter.wins}
-            onChange={handleChange}
-          />
+            <label htmlFor="wins">Wins:</label>
+            <input
+              type="number"
+              className={styles.inputField}
+              id="wins"
+              name="wins"
+              required
+              value={fighter.wins}
+              onChange={handleChange}
+            />
 
-          <label htmlFor="loses">Loses:</label>
-          <input
-            type="number"
-            className={styles.inputField}
-            id="loses"
-            name="loses"
-            required
-            value={fighter.loses}
-            onChange={handleChange}
-          />
+            <label htmlFor="loses">Loses:</label>
+            <input
+              type="number"
+              className={styles.inputField}
+              id="loses"
+              name="loses"
+              required
+              value={fighter.loses}
+              onChange={handleChange}
+            />
 
-          <label htmlFor="weight">Weight:</label>
-          <input
-            type="text"
-            className={styles.inputField}
-            id="weight"
-            name="weight"
-            required
-            value={fighter.weight}
-            onChange={handleChange}
-          />
+            <label htmlFor="weight">Weight:</label>
+            <input
+              type="text"
+              className={styles.inputField}
+              id="weight"
+              name="weight"
+              required
+              value={fighter.weight}
+              onChange={handleChange}
+            />
 
-          <label htmlFor="description">Description:</label>
-          <textarea
-            id="description"
-            className={styles.inputField}
-            name="description"
-            value={fighter.description}
-            onChange={handleChange}
-          />
+            <label htmlFor="description">Description:</label>
+            <textarea
+              id="description"
+              className={styles.inputField}
+              name="description"
+              value={fighter.description}
+              onChange={handleChange}
+            />
 
-          <div className={styles.centeredButton}>
-            <button type="submit" className={styles.createButton}>Edit</button>
+            <div className={styles.centeredButton}>
+              <button type="submit" className={styles.createButton}>Edit</button>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </section>
   );
 }

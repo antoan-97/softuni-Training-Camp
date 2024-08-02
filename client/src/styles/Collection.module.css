@@ -1,5 +1,5 @@
 .collectionBackground {
-  background-image: url('/images/other-background.jpg'); /* Path to your collection page background */
+  background-color: black;
   background-size: cover;
   background-position: center;
   min-height: 100vh; /* Ensure the background covers the entire viewport height */
@@ -167,7 +167,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 20px 0;
+  margin: 70px 0;
   font-size: 2.5rem;
   color: #e1d8d8;
 }

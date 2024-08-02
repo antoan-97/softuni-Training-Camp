@@ -13,7 +13,7 @@ export default function FightersList() {
     useEffect(() => {
         fighterService.getAll()
             .then(result => setFighters(result))
-            .catch(err =>{
+            .catch(err => {
                 console.log(err);
             })
     }, []);
@@ -23,6 +23,9 @@ export default function FightersList() {
 
     return (
         <section id="catalog-page">
+            <div className={styles.collectionBackground}>
+
+
             <h1 className={styles.title}>UFC  Fighters List</h1>
 
 
@@ -34,7 +37,7 @@ export default function FightersList() {
                 {fighters.length === 0 && <h3 className='no-articles'>No articles yet</h3>}
             </div>
 
-
+        </div>
         </section>
     );
 }

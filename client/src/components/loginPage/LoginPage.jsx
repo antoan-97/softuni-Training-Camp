@@ -12,9 +12,9 @@ export default function LoginPage() {
         email: '',
         password: '',
     });
-    
+
     return (
-        <section id="login-page" className={styles.loginSection}>
+        <section id="login-page" className={styles.background}>
             <div className={styles.loginContainer}>
                 <form onSubmit={onSubmit} className={styles.loginForm}>
                     <h2>Login</h2>
