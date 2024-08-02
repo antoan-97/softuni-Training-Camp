@@ -58,13 +58,13 @@ export default function CreatePage() {
             />
 
             <label htmlFor="wins">Wins:</label>
-            <input type="number" className={styles.inputField} id="wins" name="wins" required />
+            <input type="number" className={styles.inputField} id="wins" name="wins" min='0' required />
 
             <label htmlFor="loses">Loses:</label>
-            <input type="number" className={styles.inputField} id="loses" name="loses" required />
+            <input type="number" className={styles.inputField} id="loses" name="loses" min='0' required />
 
             <label htmlFor="weight">Weight:</label>
-            <input type="number" className={styles.inputField} id="weight" name="weight" required />
+            <input type="number"  className={styles.inputField} id="weight" name="weight" min='0' required />
 
             <label htmlFor="description">Description:</label>
             <textarea
