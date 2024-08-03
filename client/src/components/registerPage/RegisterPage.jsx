@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import styles from '../../styles/Register.module.css'
 import AuthContext from '../../contexts/authContext';
 import useForm from '../../hooks/useForm';
@@ -14,26 +14,28 @@ export default function RegisterPage() {
     repeatPassword: '',
   })
 
+
   return (
-    <section id="register-page">
+    <section className={styles.background}>
       <div className={styles.signupSection}>
         <form onSubmit={onSubmit} className={styles.signupForm}>
           <h2>Sign Up</h2>
           <ul className={styles.noBullet}>
             <li>
               <label htmlFor="email">Email:</label>
-              <input onChange={onChange}
+              <input
+                onChange={onChange}
                 type="text"
                 className={styles.inputFields}
                 id="email"
-                name="email" 
+                name="email"
                 value={values.email}
-                />
-                
+              />
             </li>
             <li>
               <label htmlFor="password">Password:</label>
-              <input onChange={onChange}
+              <input
+                onChange={onChange}
                 type="password"
                 className={styles.inputFields}
                 id="password"
@@ -43,7 +45,8 @@ export default function RegisterPage() {
             </li>
             <li>
               <label htmlFor="repeat-password">Repeat-Password:</label>
-              <input onChange={onChange}
+              <input
+                onChange={onChange}
                 type="password"
                 className={styles.inputFields}
                 id="repeat-password"

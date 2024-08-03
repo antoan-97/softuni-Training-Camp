@@ -32,6 +32,8 @@ export default function FighterDetails() {
 
 
     const isOwner = userId === fighter._ownerId
+    console.log(isOwner);
+
     const navigate = useNavigate()
 
     const handleDelete = async () => {
@@ -59,52 +61,52 @@ export default function FighterDetails() {
 
     return (
 
-        <section id="details-page" className={styles.detailsPage}>
-            <div className={styles.background}>
-                <h1 className={styles.detailsHeading}>Details Page</h1>
-                <div className={styles.mainCard}>
-                    <div className={styles.cardLeft}>
-                        <div className={styles.cardDetails}>
+    <section id="details-page" className={styles.detailsPage}>
+        <div className={styles.background}>
+            <h1 className={styles.detailsHeading}>Details Page</h1>
+            <div className={styles.mainCard}>
+                <div className={styles.cardLeft}>
+                    <div className={styles.cardDetails}>
 
-                            <h2>{fighter.title}</h2>
-                            <div className={styles.cardFighter}>
-                                <p className={styles.wins}>Wins: {fighter.wins}</p>
-                                <p className={styles.loses}>Loses: {fighter.loses}</p>
-                                <p className={styles.weight}>Weight: {fighter.weight}</p>
-                            </div>
-
-                            <p className={styles.description}>Description: {fighter.description}</p>
+                        <h2>{fighter.title}</h2>
+                        <div className={styles.cardFighter}>
+                            <p className={styles.wins}>Wins: {fighter.wins}</p>
+                            <p className={styles.loses}>Loses: {fighter.loses}</p>
+                            <p className={styles.weight}>Weight: {fighter.weight}</p>
                         </div>
-                    </div>
-                    <div className={styles.cardRight}>
-                        <img src={fighter.imageUrl} alt={fighter.title} className={styles.fighterImage} />
-                        <div className={styles.buttonContainer}>
-                            {isOwner && (
-                                <div className={styles.ownerButtons}>
-                                    <Link to={`/fighters/${fighterId}/edit`} className={styles.detailsButton}>Edit</Link>
-                                    <button onClick={() => setShowDeleteModal(true)} className={styles.detailsButton}>Delete</button>
-                                </div>
-                            )}
-                            {isAuthenticated && !isOwner && (
-                                <>
-                                    {hasSigned ? (
-                                        <p className={styles.thanksForSigning}>Let's Do This! You're Officially in the {fighter.title} Training Camp!</p>
-                                    ) : (
-                                        <button onClick={handleSignUp} className={styles.detailsButton}>Sign Up</button>
-                                    )}
-                                </>
-                            )}
 
-                        </div>
+                        <p className={styles.description}>Description: {fighter.description}</p>
                     </div>
                 </div>
-                <DeleteModal
-                    show={showDeleteModal}
-                    onClose={() => setShowDeleteModal(false)}
-                    onDelete={handleDelete}
-                />
+                <div className={styles.cardRight}>
+                    <img src={fighter.imageUrl} alt={fighter.title} className={styles.fighterImage} />
+                    <div className={styles.buttonContainer}>
+                        {isOwner && (
+                            <div className={styles.ownerButtons}>
+                                <Link to={`/fighters/${fighterId}/edit`} className={styles.detailsButton}>Edit</Link>
+                                <button onClick={() => setShowDeleteModal(true)} className={styles.detailsButton}>Delete</button>
+                            </div>
+                        )}
+                        {isAuthenticated && !isOwner && (
+                            <>
+                                {hasSigned ? (
+                                    <p className={styles.thanksForSigning}>Let's Do This! You're Officially in the {fighter.title} Training Camp!</p>
+                                ) : (
+                                    <button onClick={handleSignUp} className={styles.detailsButton}>Sign Up</button>
+                                )}
+                            </>
+                        )}
+
+                    </div>
+                </div>
             </div>
-        </section >
+            <DeleteModal
+                show={showDeleteModal}
+                onClose={() => setShowDeleteModal(false)}
+                onDelete={handleDelete}
+            />
+        </div>
+    </section >
     );
 
 

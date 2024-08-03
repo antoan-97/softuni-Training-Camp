@@ -22,7 +22,6 @@ export default function LoginPage() {
                         <li>
                             <label htmlFor="email">Email:</label>
                             <input onChange={onChange}
-                                // onInput={emailValidation}
                                 type="text"
                                 className={styles.inputField}
                                 id="email"
@@ -34,7 +33,6 @@ export default function LoginPage() {
                         <li>
                             <label htmlFor="password">Password:</label>
                             <input onChange={onChange}
-                                // onBlur={passwordValidation}
                                 type="password"
                                 className={styles.inputField}
                                 id="password"
