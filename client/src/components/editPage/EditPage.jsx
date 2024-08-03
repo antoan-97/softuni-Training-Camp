@@ -1,8 +1,12 @@
 import styles from '../../styles/Create.module.css';
+
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState, useContext } from 'react';
+
 import AuthContext from '../../contexts/authContext';
 import * as fighterService from '../../services/fighterService';
+import { notifyError, notifySuccess } from '../../toastConfigs/toastConfig'
+
 
 export default function EditPage() {
   const navigate = useNavigate();
@@ -40,15 +44,56 @@ export default function EditPage() {
     fetchFighter();
   }, [fighterId, userId, navigate]);
 
+  const validateInputs = (data) => {
+    if (!data.title ||
+      !data.category ||
+      !data.imageUrl ||
+      !data.wins ||
+      !data.loses ||
+      !data.weight ||
+      !data.description) {
+      notifyError('Please fill in all fields.');
+      return false;
+    }
+
+    const wins = Number(data.wins);
+    const loses = Number(data.loses);
+    const weight = Number(data.weight);
+
+    if (isNaN(wins) || isNaN(loses) || isNaN(weight)) {
+      notifyError('Wins, loses, and weight must be valid numbers.');
+      return false;
+    }
+
+    if (data.wins < 0 || data.loses < 0 || data.weight < 0) {
+      notifyError('Please select a value that is not less than 0 ');
+      return false
+    }
+
+    const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
+    if (!urlPattern.test(data.imageUrl)) {
+      notifyError('Please enter a valid URL for the image.');
+      return false;
+    }
+
+    return true;
+  };
+
+
   const editFighterHandler = async (e) => {
     e.preventDefault();
     const fighterData = Object.fromEntries(new FormData(e.currentTarget));
 
+    if (!validateInputs(fighterData)) {
+      return;
+    }
+
     try {
       await fighterService.update(fighterId, fighterData);
+      notifySuccess('Edit Successfully!')
       navigate('/fighters-list');
     } catch (error) {
-      console.log(error);
+      notifyError('Failed to edit fighter: ' + error.message)
     }
   };
 
@@ -102,36 +147,30 @@ export default function EditPage() {
 
             <label htmlFor="wins">Wins:</label>
             <input
-              type="number"
+              type="text"
               className={styles.inputField}
               id="wins"
               name="wins"
-              min='0'
-              required
               value={fighter.wins}
               onChange={handleChange}
             />
 
             <label htmlFor="loses">Loses:</label>
             <input
-              type="number"
+              type="text"
               className={styles.inputField}
               id="loses"
               name="loses"
-              min='0'
-              required
               value={fighter.loses}
               onChange={handleChange}
             />
 
             <label htmlFor="weight">Weight:</label>
             <input
-              type="number"
+              type="text"
               className={styles.inputField}
               id="weight"
               name="weight"
-              min='0'
-              required
               value={fighter.weight}
               onChange={handleChange}
             />

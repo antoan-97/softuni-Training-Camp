@@ -1,16 +1,19 @@
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { notifyError, notifySuccess } from '../toastConfigs/toastConfig'
 
 import * as authServices from '../services/authService'
 
 const AuthContext = createContext();
 
 
-export const AuthProvider = ({
-    children,
-}) => {
+export const AuthProvider = ({ children }) => {
     const navigate = useNavigate()
     const [auth, setAuth] = useState(() => {
+        const token = localStorage.getItem('accessToken');
+        if (token) {
+            return { accessToken: token, }
+        }
         localStorage.removeItem('accessToken');
 
         return {};
@@ -19,14 +22,14 @@ export const AuthProvider = ({
     const loginSubmitHandler = async (values) => {
         // Basic validation
         if (!values.email || !values.password) {
-            alert('Please enter both email and password.');
+            notifyError('Please enter both email and password.');
             return;
         }
 
         // Simple email format validation
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test(values.email)) {
-            alert('Please enter a valid email address.');
+            notifyError('Please enter a valid email address.');
             return;
         }
 
@@ -35,35 +38,43 @@ export const AuthProvider = ({
             setAuth(result);
             localStorage.setItem('accessToken', result.accessToken)
             navigate('/');
+            notifySuccess('Successful login!')
         } catch (error) {
+            setAuth({});
             console.error('Login failed:', error.message);
-            alert('Login failed: ' + error.message);
+            notifyError('Login failed: ' + error.message);
         }
     };
+    
 
     const registerSubmitHandler = async (values) => {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+        if (!emailPattern.test(values.email)) {
+            notifyError('Please enter a valid email address.');
+            return;
+        }
         // Basic validation
         if (!values.email || !values.password || !values.repeatPassword) {
-            alert('Please enter all fields.');
+            notifyError('Please enter all fields.');
             return;
         }
 
         //Email min length validation
         if (values.email.length < 3) {
-            alert('Email should be at least 3 characters long!');
+            notifyError('Email should be at least 3 characters long!');
             return;
         }
 
         //Password min length value
         if (values.password.length < 6) {
-            alert('Passwords must be at least 6 characters long!');
+            notifyError('Passwords must be at least 6 characters long!');
             return;
         }
 
         // Password match validation
         if (values.password !== values.repeatPassword) {
-            alert('Passwords do not match.');
+            notifyError('Passwords do not match.');
             return;
         }
 
@@ -73,13 +84,14 @@ export const AuthProvider = ({
 
             setAuth(result);
             localStorage.setItem('accessToken', result.accessToken)
-
+            
             navigate('/');
+            notifySuccess('Successful registration!')
 
             console.log('Registration successful:', result);
         } catch (error) {
             console.error('Registration failed:', error.message);
-            alert('Registration failed: ' + error.message);
+            notifyError('Registration failed: ' + error.message);
         }
     };
 
@@ -87,7 +99,9 @@ export const AuthProvider = ({
         setAuth({});
         console.log('Token before logout:', localStorage.getItem('accessToken'));
         localStorage.removeItem('accessToken');
+
         console.log('Token after logout:', localStorage.getItem('accessToken'));
+
 
         navigate('/')
     }
@@ -98,7 +112,7 @@ export const AuthProvider = ({
         logoutHandler,
         email: auth ? auth.email : null,
         userId: auth._id,
-        isAuthenticated: !!auth.email
+        isAuthenticated: !!auth.email,
     };
     return (
         <AuthContext.Provider value={values}>

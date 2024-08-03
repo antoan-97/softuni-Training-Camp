@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
 
 import { AuthProvider } from './contexts/authContext'
 
@@ -22,13 +23,14 @@ import ScrollToTop from './components/scrollToTop/ScrollToTop'
 
 
 
+
 function App() {
 
 
   return (
     <AuthProvider>
       <div className={styles.global}>
-        <Navbar/>
+        <Navbar />
         <ScrollToTop />
         <Routes>
           <Route path='/' element={<HomePage />}></Route>
@@ -51,6 +53,7 @@ function App() {
         </Routes>
 
         <Footer />
+        <ToastContainer />
       </div>
     </AuthProvider >
   )
