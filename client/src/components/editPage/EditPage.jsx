@@ -106,6 +106,7 @@ export default function EditPage() {
               className={styles.inputField}
               id="wins"
               name="wins"
+              min='0'
               required
               value={fighter.wins}
               onChange={handleChange}
@@ -117,6 +118,7 @@ export default function EditPage() {
               className={styles.inputField}
               id="loses"
               name="loses"
+              min='0'
               required
               value={fighter.loses}
               onChange={handleChange}
@@ -124,10 +126,11 @@ export default function EditPage() {
 
             <label htmlFor="weight">Weight:</label>
             <input
-              type="text"
+              type="number"
               className={styles.inputField}
               id="weight"
               name="weight"
+              min='0'
               required
               value={fighter.weight}
               onChange={handleChange}
