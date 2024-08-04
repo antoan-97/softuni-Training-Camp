@@ -11,10 +11,13 @@ export const AuthProvider = ({ children }) => {
     const navigate = useNavigate()
     const [auth, setAuth] = useState(() => {
         const token = localStorage.getItem('accessToken');
-        if (token) {
-            return { accessToken: token, }
+        const userId = localStorage.getItem('userId');
+        if (token && userId) {
+            return { accessToken: token, _id: userId }
         }
         localStorage.removeItem('accessToken');
+        localStorage.removeItem('userId');
+
 
         return {};
     })
@@ -37,6 +40,7 @@ export const AuthProvider = ({ children }) => {
             const result = await authServices.login(values.email, values.password);
             setAuth(result);
             localStorage.setItem('accessToken', result.accessToken)
+            localStorage.setItem('userId', result._id);
             navigate('/');
             notifySuccess('Successful login!')
         } catch (error) {
@@ -45,7 +49,7 @@ export const AuthProvider = ({ children }) => {
             notifyError('Login failed: ' + error.message);
         }
     };
-    
+
 
     const registerSubmitHandler = async (values) => {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -84,7 +88,8 @@ export const AuthProvider = ({ children }) => {
 
             setAuth(result);
             localStorage.setItem('accessToken', result.accessToken)
-            
+            localStorage.setItem('userId', result._id);
+
             navigate('/');
             notifySuccess('Successful registration!')
 
@@ -99,9 +104,7 @@ export const AuthProvider = ({ children }) => {
         setAuth({});
         console.log('Token before logout:', localStorage.getItem('accessToken'));
         localStorage.removeItem('accessToken');
-
-        console.log('Token after logout:', localStorage.getItem('accessToken'));
-
+        localStorage.removeItem('userId');
 
         navigate('/')
     }
@@ -111,8 +114,8 @@ export const AuthProvider = ({ children }) => {
         registerSubmitHandler,
         logoutHandler,
         email: auth ? auth.email : null,
-        userId: auth._id,
-        isAuthenticated: !!auth.email,
+        userId: auth ? auth._id : null,
+        isAuthenticated: !!auth.accessToken,
     };
     return (
         <AuthContext.Provider value={values}>
