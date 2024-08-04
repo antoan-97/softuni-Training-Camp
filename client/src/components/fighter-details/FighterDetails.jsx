@@ -2,6 +2,8 @@ import styles from '../../styles/FighterDetails.module.css'
 
 import { useEffect, useState, useContext } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { notifyError, notifySuccess } from '../../toastConfigs/toastConfig';
+
 
 import AuthContext from '../../contexts/authContext';
 import DeleteModal from '../deleteModal/DeleteModal';
@@ -40,10 +42,12 @@ export default function FighterDetails() {
         try {
             await fighterService.remove(fighterId)
             navigate('/fighters-list')
-            console.log('Fighter deleted successful ');
+            console.log('Fighter deleted successfuly ');
+            notifySuccess('Deleted Successfuly!')
         } catch (error) {
-            console.error("Failed to delete the fighter:", error);
             navigate(`/fighters/${fighterId}/details`)
+            console.error("Failed to delete the fighter:", error);
+            notifyError('Failed to delete the fighter')
         }
     }
 
@@ -61,52 +65,52 @@ export default function FighterDetails() {
 
     return (
 
-    <section id="details-page" className={styles.detailsPage}>
-        <div className={styles.background}>
-            <h1 className={styles.detailsHeading}>Details Page</h1>
-            <div className={styles.mainCard}>
-                <div className={styles.cardLeft}>
-                    <div className={styles.cardDetails}>
+        <section id="details-page" className={styles.detailsPage}>
+            <div className={styles.background}>
+                <h1 className={styles.detailsHeading}>Details Page</h1>
+                <div className={styles.mainCard}>
+                    <div className={styles.cardLeft}>
+                        <div className={styles.cardDetails}>
 
-                        <h2>{fighter.title}</h2>
-                        <div className={styles.cardFighter}>
-                            <p className={styles.wins}>Wins: {fighter.wins}</p>
-                            <p className={styles.loses}>Loses: {fighter.loses}</p>
-                            <p className={styles.weight}>Weight: {fighter.weight}</p>
-                        </div>
-
-                        <p className={styles.description}>Description: {fighter.description}</p>
-                    </div>
-                </div>
-                <div className={styles.cardRight}>
-                    <img src={fighter.imageUrl} alt={fighter.title} className={styles.fighterImage} />
-                    <div className={styles.buttonContainer}>
-                        {isOwner && (
-                            <div className={styles.ownerButtons}>
-                                <Link to={`/fighters/${fighterId}/edit`} className={styles.detailsButton}>Edit</Link>
-                                <button onClick={() => setShowDeleteModal(true)} className={styles.detailsButton}>Delete</button>
+                            <h2>{fighter.title}</h2>
+                            <div className={styles.cardFighter}>
+                                <p className={styles.wins}>Wins: {fighter.wins}</p>
+                                <p className={styles.loses}>Loses: {fighter.loses}</p>
+                                <p className={styles.weight}>Weight: {fighter.weight}</p>
                             </div>
-                        )}
-                        {isAuthenticated && !isOwner && (
-                            <>
-                                {hasSigned ? (
-                                    <p className={styles.thanksForSigning}>Let's Do This! You're Officially in the {fighter.title} Training Camp!</p>
-                                ) : (
-                                    <button onClick={handleSignUp} className={styles.detailsButton}>Sign Up</button>
-                                )}
-                            </>
-                        )}
 
+                            <p className={styles.description}>Description: {fighter.description}</p>
+                        </div>
+                    </div>
+                    <div className={styles.cardRight}>
+                        <img src={fighter.imageUrl} alt={fighter.title} className={styles.fighterImage} />
+                        <div className={styles.buttonContainer}>
+                            {isOwner && (
+                                <div className={styles.ownerButtons}>
+                                    <Link to={`/fighters/${fighterId}/edit`} className={styles.detailsButton}>Edit</Link>
+                                    <button onClick={() => setShowDeleteModal(true)} className={styles.detailsButton}>Delete</button>
+                                </div>
+                            )}
+                            {isAuthenticated && !isOwner && (
+                                <>
+                                    {hasSigned ? (
+                                        <p className={styles.thanksForSigning}>Let's Do This! You're Officially in the {fighter.title} Training Camp!</p>
+                                    ) : (
+                                        <button onClick={handleSignUp} className={styles.detailsButton}>Sign Up</button>
+                                    )}
+                                </>
+                            )}
+
+                        </div>
                     </div>
                 </div>
+                <DeleteModal
+                    show={showDeleteModal}
+                    onClose={() => setShowDeleteModal(false)}
+                    onDelete={handleDelete}
+                />
             </div>
-            <DeleteModal
-                show={showDeleteModal}
-                onClose={() => setShowDeleteModal(false)}
-                onDelete={handleDelete}
-            />
-        </div>
-    </section >
+        </section >
     );
 
 
