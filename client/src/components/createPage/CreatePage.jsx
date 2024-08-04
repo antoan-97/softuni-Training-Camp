@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { notifyError, notifySuccess } from '../../toastConfigs/toastConfig';
 
 import useForm from '../../hooks/useForm'
+import { useState } from 'react';
 
 const validateInputs = (data) => {
   if (!data.title ||
@@ -65,7 +66,7 @@ export default function CreatePage() {
     }
   };
 
-  const { values, onChange, onSubmit } = useForm(createFighterHandler, {
+  const [fighter, setFighter] = useState({
     title: '',
     category: '',
     imageUrl: '',
@@ -75,81 +76,88 @@ export default function CreatePage() {
     description: '',
   });
 
+  const handleChange = (e) => {
+    setFighter({
+      ...fighter,
+      [e.target.name]: e.target.value,
+    });
+  };
+
 
 
   return (
     <section id="new-post-page" className={styles.background}>
       <div className={styles.newPostSection}>
 
-        <form onSubmit={onSubmit} className={styles.newPostForm}>
+        <form onSubmit={createFighterHandler} className={styles.newPostForm}>
           <h2>Create New Fighter</h2>
           <div className={styles.formContainer} >
 
             <label htmlFor="name">Fighter Name:</label>
             <input
-              onChange={onChange}
+              onChange={handleChange}
               type="text"
               className={styles.inputField}
               id="name"
               name="title"
-              value={values.title}
+              value={fighter.title}
             />
 
             <label htmlFor="category">Category:</label>
             <input
-              onChange={onChange}
+              onChange={handleChange}
               type="text"
               className={styles.inputField}
               id="category"
               name="category"
-              value={values.category}
+              value={fighter.category}
             />
 
             <label htmlFor="image">Image URL:</label>
             <input
-              onChange={onChange}
+              onChange={handleChange}
               type="text"
               className={styles.inputField}
               id="imageUrl"
               name="imageUrl"
-              value={values.imageUrl}
+              value={fighter.imageUrl}
             />
 
             <label htmlFor="wins">Wins:</label>
             <input
-              onChange={onChange}
+              onChange={handleChange}
               type="text"
               className={styles.inputField}
               id="wins"
               name="wins"
-              value={values.wins}
+              value={fighter.wins}
             />
 
             <label htmlFor="loses">Loses:</label>
             <input
-              onChange={onChange}
+              onChange={handleChange}
               type="text" className={styles.inputField} id="loses"
               name="loses"
-              value={values.loses}
+              value={fighter.loses}
             />
 
             <label htmlFor="weight">Weight:</label>
             <input
-              onChange={onChange}
+              onChange={handleChange}
               type="text"
               className={styles.inputField}
               id="weight"
-              value={values.weight}
+              value={fighter.weight}
               name="weight"
             />
 
             <label htmlFor="description">Description:</label>
             <textarea
-              onChange={onChange}
+              onChange={handleChange}
               id="description"
               className={styles.inputField}
               name="description"
-              value={values.description}
+              value={fighter.description}
             />
 
 
