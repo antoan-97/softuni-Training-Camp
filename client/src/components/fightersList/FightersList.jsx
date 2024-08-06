@@ -12,7 +12,7 @@ export default function FightersList() {
 
     useEffect(() => {
         fighterService.getAll()
-            .then(result => setFighters(result))
+            .then(result => setFighters(result.reverse()))
             .catch(err => {
                 console.log(err);
             })

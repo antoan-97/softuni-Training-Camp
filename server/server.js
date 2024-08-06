@@ -1341,61 +1341,74 @@
     };
     var seedData = {
         fighters: {
-            "2f3c4e41-1aac-4fd3-aadc-ed706438426a": {
-                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-                title: "Alex Pereira",
-                category: "Kickboxer",
-                imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO_CXz6pHnwMBqVxqZwbkL6UbFx6CRCPykBg&s",
-                wins: "11",
-                loses: "2",
-                weight: "205",
-                description: "Glory and UFC double champ",
-                _createdOn: 1721563772624,
-            },
-            "270ab42d-8067-416a-9b40-6095b0169cbf": {
-                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-                title: "Conor McGregor",
-                category: "Striker",
-                imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCYnUjKQwIO-bXF3tn0YjvSDmtkxky3_4U6g&s",
-                wins: "22",
-                loses: "6",
-                weight: "170",
-                description: "UFC first double champ",
-                _createdOn: 1721563903494,
-            },
-            "b57eac0a-4037-4288-8967-4e67c8d5865f": {
-                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-                title: "Khamzat Chimaev",
-                category: "Wrestler",
-                imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStAoel8CD1z3owYJWz2tVGeog1zOSaxAiPVQ&s",
-                wins: "13",
-                loses: "0",
-                weight: "185",
-                description: "Undefeated UFC fighter",
-                _createdOn: 1721564012895,
-            },
-            "e9e39c60-14fd-4523-bf53-d3084d2cfd38": {
-                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-                title: "Jon Jones",
-                category: "Martial Art Fighter",
-                imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReQmZ-2i8NpVIPn3dsr1viKzb79crTu1soCQ&s",
-                wins: "27",
-                loses: "1",
-                weight: "248",
-                description: "MMA Goat",
-                _createdOn: 1721564209972,
+            "76d4c1b5-7a11-4461-a367-5c868467bbff": {
+              _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+              title: "Max Holloway",
+              category: "Boxer",
+              imageUrl: "https://sports.betmgm.com/en/blog/wp-content/uploads/2023/01/when-is-max-holloway-next-fight-ufc-betmgm.jpg",
+              wins: "26",
+              loses: "7",
+              weight: "170",
+              description: "UFC BMF Champion",
+              _createdOn: 1721564398586
             },
             "947d3168-2c3f-4dfd-87f5-a4585e755fab": {
-                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-                title: "Anderson Silva",
-                category: "Striker",
-                imageUrl: "https://bjjfanatics.com/cdn/shop/articles/anderson-silva_1024x1024.jpg?v=1607721296",
-                wins: "34",
-                loses: "11",
-                weight: "185",
-                description: "Longest title reign in UFC history",
-                _createdOn: 1721564311199,
+              _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+              title: "Anderson Silva",
+              category: "Striker",
+              imageUrl: "https://bjjfanatics.com/cdn/shop/articles/anderson-silva_1024x1024.jpg?v=1607721296",
+              wins: "34",
+              loses: "11",
+              weight: "185",
+              description: "Longest title reign in UFC history",
+              _createdOn: 1721564311199
             },
+            "e9e39c60-14fd-4523-bf53-d3084d2cfd38": {
+              _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+              title: "Jon Jones",
+              category: "Martial Art Fighter",
+              imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReQmZ-2i8NpVIPn3dsr1viKzb79crTu1soCQ&s",
+              wins: "27",
+              loses: "1",
+              weight: "248",
+              description: "MMA Goat",
+              _createdOn: 1721564209972
+            },
+            "b57eac0a-4037-4288-8967-4e67c8d5865f": {
+              _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+              title: "Khamzat Chimaev",
+              category: "Wrestler",
+              imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStAoel8CD1z3owYJWz2tVGeog1zOSaxAiPVQ&s",
+              wins: "13",
+              loses: "0",
+              weight: "185",
+              description: "Undefeated UFC fighter",
+              _createdOn: 1721564012895
+            },
+            "270ab42d-8067-416a-9b40-6095b0169cbf": {
+              _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+              title: "Conor McGregor",
+              category: "Striker",
+              imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCYnUjKQwIO-bXF3tn0YjvSDmtkxky3_4U6g&s",
+              wins: "22",
+              loses: "6",
+              weight: "170",
+              description: "UFC first double champ",
+              _createdOn: 1721563903494
+            },
+            "2f3c4e41-1aac-4fd3-aadc-ed706438426a": {
+              _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+              title: "Alex Pereira",
+              category: "Kickboxer",
+              imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO_CXz6pHnwMBqVxqZwbkL6UbFx6CRCPykBg&s",
+              wins: "11",
+              loses: "2",
+              weight: "205",
+              description: "Glory and UFC double champ",
+              _createdOn: 1721563772624
+            }
+          },
+          
             "76d4c1b5-7a11-4461-a367-5c868467bbff": {
                 _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 title: "Max Holloway",
@@ -1407,8 +1420,7 @@
                 description: "UFC BMF Champion",
                 _createdOn: 1721564398586,
 
-            }
-        },
+            },
         recipes: {
             "3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
                 _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
