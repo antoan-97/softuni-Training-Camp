@@ -31,7 +31,7 @@ export const create = async (fighterData) => {
 };
 
 export const getAll = async () => {
-    const response = await fetch(`${baseUrl}/fighters`, {
+    const response = await fetch(`${baseUrl}/fighters?sortBy=_createdOn desc`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json'
@@ -61,6 +61,7 @@ export const getOne = async (fighterId) => {
     const result = await response.json();
     return result;
 };
+
 
 
 export const update = async (fighterId, fighterData) => {
