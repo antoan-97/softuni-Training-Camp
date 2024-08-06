@@ -3,6 +3,7 @@ import styles from '../../styles/Collection.module.css';
 import { useEffect, useState } from 'react';
 
 import * as fighterService from '../../services/fighterService'
+import { notifyError } from '../../toastConfigs/toastConfig';
 
 import FighterListItem from './fighterListItem/FighterListItem';
 
@@ -15,6 +16,7 @@ export default function FightersList() {
             .then(result => setFighters(result.reverse()))
             .catch(err => {
                 console.log(err);
+                notifyError(err)
             })
     }, []);
 
@@ -26,18 +28,18 @@ export default function FightersList() {
             <div className={styles.collectionBackground}>
 
 
-            <h1 className={styles.title}>UFC  Fighters List</h1>
+                <h1 className={styles.title}>UFC  Fighters List</h1>
 
 
-            <div className={styles.fightersWrapper}>
-                {fighters.map(fighter => (
-                    <FighterListItem key={fighter._id} {...fighter} />
-                ))}
+                <div className={styles.fightersWrapper}>
+                    {fighters.map(fighter => (
+                        <FighterListItem key={fighter._id} {...fighter} />
+                    ))}
 
-                {fighters.length === 0 && <h3 className='no-articles'>No articles yet</h3>}
+                    {fighters.length === 0 && <h3 className='no-articles'>No articles yet</h3>}
+                </div>
+
             </div>
-
-        </div>
         </section>
     );
 }

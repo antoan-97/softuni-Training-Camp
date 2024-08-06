@@ -37,6 +37,7 @@ export default function EditPage() {
         }
       } catch (error) {
         console.log(error);
+        notifyError(error)
         navigate('/'); // Redirect on error
       }
     };

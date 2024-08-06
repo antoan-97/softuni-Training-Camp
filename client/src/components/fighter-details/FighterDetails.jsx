@@ -56,9 +56,10 @@ export default function FighterDetails() {
         try {
             await fighterService.signUpForFighter(fighterId, userId);
             setHasSigned(true);
-
+            notifySuccess('Successfully sign up!')
         } catch (error) {
             console.log('Failed to sign up', error);
+            notifyError('Failed to sign up', error)
         }
     }
 

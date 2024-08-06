@@ -4,6 +4,7 @@ import * as authServices from '../../services/authService'
 import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../contexts/authContext";
+import { notifyError, notifySuccess } from "../../toastConfigs/toastConfig";
 
 export default function  Logout() {
     const navigate = useNavigate();
@@ -12,12 +13,14 @@ export default function  Logout() {
     useEffect(() => {
         authServices.logout()
             .then(() => {
-                console.log("Logout successful");
                 logoutHandler()
+                notifySuccess('Logout successful!')
+                console.log("Logout successful");
             })
             .catch((error) => {
-                console.error("Logout failed:", error.message);
                 navigate('/');
+                notifyError('Logout failed:', error.message)
+                console.error("Logout failed:", error.message);
             });
     }, [logoutHandler]);
 
