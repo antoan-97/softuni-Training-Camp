@@ -7,12 +7,12 @@ Training Camp is a React-based web application that allows users to explore a ca
 - **User Authentication**
   - Registration and login functionality with form validation.
   - Authentication guards for protected routes.
-- **Articles**
-  - Create, edit, and delete articles with form validation.
-  - Display a catalog of articles.
-  - Detailed view of each article with sign up functionality.
+- **Fighters**
+  - Create, edit, and delete fighters with form validation.
+  - Display a catalog of fighters.
+  - Detailed view of each fighter with sign up functionality.
 - **Fighters Resources**
-  - Articles covering description, wins, loses, and weight.
+  - Fighter covering description, wins, loses, and weight.
 - **Responsive Design**
   - A user-friendly interface that adapts to different screen sizes.
 - **Scroll to Top**
@@ -20,7 +20,7 @@ Training Camp is a React-based web application that allows users to explore a ca
 - **Toaster Notifications**
   - Informative toaster messages for actions sign up form submission, errors, and success notifications.
 - **Confirmation Modals**
-  - Confirmation dialogs for critical actions like article deletion.
+  - Confirmation dialogs for critical actions like fighter deletion.
 
 
   ## Installation
@@ -66,9 +66,19 @@ Training Camp is a React-based web application that allows users to explore a ca
 ## Usage
 
 - **Home Page**: Features a welcoming message and an introduction to the UFC Fighters Training Camp platform. Includes a prominent call-to-action button labeled "Get Started!" that directs users to the Fighters List page.
-- **Articles Catalog**: Browse all articles.
-- **Article Details**: View detailed information about an article.
-- **Create Article**: Authenticated users can create new articles.
-- **Edit Article**: Authenticated users can edit their articles.
-- **Delete Article**: Authenticated users can delete their articles.
-- **User Authentication**: Register and login to access more features.
+- **Fighters Catalog**: Browse all fighters.
+- **Fighters Details**: View detailed information about an fighters.
+- **Create Fighter**: Authenticated users can create new fighters.
+- **Edit Fighter**: Authenticated users can edit their fighters.
+- **Delete Fighter**: Authenticated users can delete their fighters.
+- **User Authentication**: Register and login to access more fighters.
+
+
+## Host
+
+The Training-Camp platform is hosted on Firebase for both frontend and backend.
+
+- Frontend: Hosted at https://ufc-training-camp.web.app/
+- Backend: Hosted as Firebase functions
+
+You can see it here: <a href="https://ufc-training-camp.web.app/">BecomePro</a>
