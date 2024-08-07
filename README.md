@@ -79,4 +79,4 @@ The Training-Camp platform is hosted on Firebase for both frontend and backend.
 - Frontend: Hosted at https://ufc-training-camp.web.app/
 - Backend: Hosted as Firebase functions
 
-You can see it here: <a href="https://ufc-training-camp.web.app/">BecomePro</a>
+You can see it here: <a href="https://ufc-training-camp.web.app/">Training-Camp</a>
