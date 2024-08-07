@@ -13,8 +13,6 @@ Training Camp is a React-based web application that allows users to explore a ca
   - Detailed view of each fighter with sign up functionality.
 - **Fighters Resources**
   - Fighter covering description, wins, loses, and weight.
-- **Responsive Design**
-  - A user-friendly interface that adapts to different screen sizes.
 - **Scroll to Top**
   - Automatically scrolls to the top of the page upon rendering to enhance user experience.
 - **Toaster Notifications**
