@@ -1,5 +1,5 @@
 
-const baseUrl = 'http://localhost:3030/users'
+const baseUrl = `${import.meta.env.VITE_API_URL}/users`
 
 const getToken = () => {
     const token = localStorage.getItem('accessToken');

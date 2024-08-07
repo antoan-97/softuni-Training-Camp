@@ -36,7 +36,7 @@ export default function FightersList() {
                         <FighterListItem key={fighter._id} {...fighter} />
                     ))}
 
-                    {fighters.length === 0 && <h3 className='no-articles'>No articles yet</h3>}
+                    {fighters.length === 0 && <h3 className='no-articles'>No fighters yet</h3>}
                 </div>
 
             </div>
